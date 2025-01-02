@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import bg from "./../assets/bg4.jpg"; // Replace with the appropriate image
 import my from "./../assets/my.jpg"; // Import the image
-import ContactLinks from "./ContactLinks";
 
 const Title = () => {
   return (
@@ -97,11 +96,6 @@ const About = () => {
           challenges during the path of my career.
         </motion.p>
       </motion.div>
-
-      {/* Contact Links (Visible only on larger screens) */}
-      <div className="absolute inset-y-0 left-4 flex items-center z-30 hidden sm:block">
-        <ContactLinks />
-      </div>
     </div>
   );
 };

@@ -4,7 +4,6 @@ import id from "./../assets/Skills/id.png";
 import photoshopIcon from "./../assets/Skills/ps.png";
 import xd from "./../assets/Skills/xd.png";
 import bg from "./../assets/bg3.jpg";
-import ContactLinks from "./ContactLinks";
 
 const SkillBar = ({ skill, percentage }) => (
   <div className="mb-6 flex flex-col items-center md:items-start group">
@@ -66,10 +65,6 @@ const Skills = () => {
             <SkillBar key={index} skill={skill} percentage={skill.percentage} />
           ))}
         </div>
-      </div>
-      {/* Contact Links (Visible only on larger screens) */}
-      <div className="absolute inset-y-0 left-4 flex items-center z-30 hidden sm:block">
-        <ContactLinks />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ const Header = () => {
   // Toggle Mobile Menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+    setContentDropdownOpen(false); // Close dropdown when toggling mobile menu
   };
 
   // Toggle Content Dropdown
@@ -18,13 +19,14 @@ const Header = () => {
     setContentDropdownOpen(!isContentDropdownOpen);
   };
 
-  // Close Mobile Menu when any item is clicked
+  // Close All Menus when any item is clicked
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
+    setContentDropdownOpen(false);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0a0a0a]">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-[#000314FF] to-[#000314FF] shadow-[0_0_4px_0.1px_#0800FFFF]">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo and Image Section */}
         <div className="flex items-center space-x-3">
@@ -39,9 +41,9 @@ const Header = () => {
           {["Home", "About", "Skills"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`} // Matching IDs with the section
-              className="text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-              onClick={handleLinkClick} // Close menu on click
+              href={`#${item.toLowerCase()}`}
+              className="font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+              onClick={handleLinkClick}
             >
               {item}
             </a>
@@ -51,12 +53,12 @@ const Header = () => {
           <div className="relative">
             <button
               onClick={toggleContentDropdown}
-              className="text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+              className="font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
             >
               Content
             </button>
             {isContentDropdownOpen && (
-              <div className="font-bold absolute right-0 mt-2 bg-[#0a0a0a] px-4 py-2 space-y-2 rounded-md shadow-lg">
+              <div className="absolute right-0 mt-2 bg-[#0a0a0a] px-4 py-2 space-y-2 rounded-md shadow-lg">
                 {[
                   { name: "Social Media Posts", id: "socialmediaposts" },
                   { name: "Logo", id: "logo" },
@@ -66,9 +68,9 @@ const Header = () => {
                 ].map(({ name, id }) => (
                   <a
                     key={name}
-                    href={`#${id}`} // Linking to the respective content section ID
+                    href={`#${id}`}
                     className="font-bold block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-                    onClick={handleLinkClick} // Close menu on click
+                    onClick={handleLinkClick}
                   >
                     {name}
                   </a>
@@ -78,9 +80,9 @@ const Header = () => {
           </div>
 
           <a
-            href="#contact" // Linking to contact section
+            href="#contact"
             className="font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-            onClick={handleLinkClick} // Close menu on click
+            onClick={handleLinkClick}
           >
             Contact Me
           </a>
@@ -108,13 +110,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className=" font-bold md:hidden bg-[#0a0a0a] px-4 py-4 space-y-2 transition-all duration-300 rounded-b-md shadow-lg">
+        <div className="font-bold md:hidden bg-[#0a0a0a] px-4 py-4 space-y-2 transition-all duration-300 rounded-b-md shadow-lg">
           {["Home", "About", "Skills"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`} // Matching IDs with the section
-              className="block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-              onClick={handleLinkClick} // Close menu on click
+              href={`#${item.toLowerCase()}`}
+              className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+              onClick={handleLinkClick}
             >
               {item}
             </a>
@@ -124,12 +126,12 @@ const Header = () => {
           <div className="relative">
             <button
               onClick={toggleContentDropdown}
-              className="font-bold block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+              className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
             >
               Content
             </button>
             {isContentDropdownOpen && (
-              <div className="font-bold absolute right-0 mt-2 bg-[#0a0a0a] px-4 py-2 space-y-2 rounded-md shadow-lg">
+              <div className="absolute right-0 mt-2 bg-[#0a0a0a] px-4 py-2 space-y-2 rounded-md shadow-lg">
                 {[
                   { name: "Social Media Posts", id: "socialmediaposts" },
                   { name: "Logo", id: "logo" },
@@ -139,9 +141,9 @@ const Header = () => {
                 ].map(({ name, id }) => (
                   <a
                     key={name}
-                    href={`#${id}`} // Linking to the respective content section ID
-                    className="font-bold block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-                    onClick={handleLinkClick} // Close menu on click
+                    href={`#${id}`}
+                    className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+                    onClick={handleLinkClick}
                   >
                     {name}
                   </a>
@@ -151,9 +153,9 @@ const Header = () => {
           </div>
 
           <a
-            href="#contact" // Linking to contact section
-            className="font-bold block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-            onClick={handleLinkClick} // Close menu on click
+            href="#contact"
+            className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
+            onClick={handleLinkClick}
           >
             Contact Me
           </a>
@@ -163,7 +165,7 @@ const Header = () => {
             href="https://ishanHatharasinghe.github.io/portfolio_web"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold block text-white bg-[#FF0000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
+            className="block font-bold text-white bg-[#FF0000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
           >
             Find Me
           </a>

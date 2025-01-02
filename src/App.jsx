@@ -12,24 +12,57 @@ import BookCover from "./Components/BookCover";
 import Contact from "./Components/Contact";
 import Skills from "./Components/Skills";
 import Copyright from "./Components/Copyright";
+import ContactLinks from "./Components/ContactLinks";
 
 function App() {
   const [count, setCount] = useState(0);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
+      <div className="absolute inset-y-0 left-4 flex items-center z-30 hidden sm:block">
+        <ContactLinks />
+      </div>
       <Header />
-      <Home />
-      <AboutMe />
-      <Skills />
-      <Content />
-      <SocialMediaPosts />
-      <Logo />
-      <YoutubeThumbnails />
-      <SocialMediaCover />
-      <BookCover />
-      <Contact />
-      <Copyright />
+      <div id="home">
+        <Home />
+      </div>
+      <div id="about">
+        <AboutMe />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="content">
+        <Content />
+      </div>
+      <div id="socialMediaPosts">
+        <SocialMediaPosts />
+      </div>
+      <div id="logo">
+        <Logo />
+      </div>
+      <div id="youtubeThumbnails">
+        <YoutubeThumbnails />
+      </div>
+      <div id="socialMediaCover">
+        <SocialMediaCover />
+      </div>
+      <div id="bookCover">
+        <BookCover />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+      <div id="copyright">
+        <Copyright />
+      </div>
     </>
   );
 }
