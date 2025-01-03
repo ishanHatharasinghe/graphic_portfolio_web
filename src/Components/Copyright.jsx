@@ -26,14 +26,6 @@ const Copyright = ({ designerName, contactHref, homeHref }) => {
           >
             Home
           </a>
-
-          <a
-            href={contactHref}
-            className="text-[#0022FFFF] hover:text-[#ffffff] font-semibold transition duration-300 ml-4"
-            aria-label="Contact Me"
-          >
-            Contact Me
-          </a>
         </div>
       </div>
     </section>
@@ -43,15 +35,13 @@ const Copyright = ({ designerName, contactHref, homeHref }) => {
 // Default Props
 Copyright.defaultProps = {
   designerName: "Ishan Hatharasinghe",
-  contactHref: "#contact",
   homeHref: "#home"
 };
 
 // Prop Types
 Copyright.propTypes = {
   designerName: PropTypes.string,
-  contactHref: PropTypes.string,
-  homeHref: PropTypes.string // Added missing prop type validation
+  homeHref: PropTypes.string
 };
 
 export default Copyright;

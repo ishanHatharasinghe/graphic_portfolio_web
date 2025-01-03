@@ -39,7 +39,7 @@ const Contact = () => {
         </p>
 
         {/* Social Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Portfolio */}
           <div className="flex flex-col items-center text-center bg-[#000000] p-4 rounded-lg transform transition duration-300 hover:bg-[#1D4ED8] hover:scale-105 hover:shadow-lg">
             <a
