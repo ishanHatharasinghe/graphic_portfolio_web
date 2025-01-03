@@ -60,7 +60,7 @@ const About = () => {
 
       {/* Content Container */}
       <motion.div
-        className="relative z-10 max-w-lg sm:max-w-xl text-center text-white px-6 py-10 bg-gradient-to-b from-[#0a0a0a] to-transparent rounded-xl shadow-lg"
+        className="relative z-10 max-w-3xl sm:max-w-4xl text-center text-white px-6 py-10 bg-gradient-to-b from-[#0a0a0a] to-transparent rounded-xl shadow-lg"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}

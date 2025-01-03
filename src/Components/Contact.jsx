@@ -177,7 +177,7 @@ const Contact = () => {
           </div>
 
           {/* Address */}
-          <div className="flex flex-col items-center text-center bg-[#000000] p-4 rounded-lg transform transition duration-300 hover:bg-[#b1b1b1] hover:scale-105 hover:shadow-lg">
+          <div className="flex flex-col items-center text-center bg-[#000000] p-4 rounded-lg transform transition duration-300 hover:bg-[#FF8400FF] hover:scale-105 hover:shadow-lg">
             <a
               href="https://www.google.com/maps/dir/6.301967,80.610486/Beralapanathara,+Matara+-+Hakmana+Road/@6.309715,80.5673928,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae3e29df098bdef:0x1f156755cd0421b5!2m2!1d80.6043!2d6.32296?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
