@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import illustratorIcon from "./../assets/Skills/ai.png";
 import figma from "./../assets/Skills/figma.png";
 import id from "./../assets/Skills/id.png";
@@ -5,7 +6,7 @@ import photoshopIcon from "./../assets/Skills/ps.png";
 import xd from "./../assets/Skills/xd.png";
 import bg from "./../assets/bg3.jpg";
 
-const SkillBar = ({ skill, percentage }) => (
+const SkillBar = ({ skill, percentage, animate }) => (
   <div className="mb-6 flex flex-col items-center md:items-start group">
     <div className="flex items-center justify-between w-full">
       <div className="flex items-center">
@@ -22,14 +23,47 @@ const SkillBar = ({ skill, percentage }) => (
     </div>
     <div className="w-full bg-gray-700 rounded-full h-2 mt-2 overflow-hidden relative">
       <div
-        className="h-full bg-[#1EFF2DFF] transition-all duration-300 group-hover:bg-[#001EFFFF]"
-        style={{ width: `${percentage}%` }}
+        className={`h-full ${
+          animate ? "bg-[#1EFF2DFF]" : "bg-[#1a1a1a]"
+        } transition-all duration-1000 ease-in-out group-hover:bg-[#001EFFFF]`}
+        style={{
+          width: animate ? `${percentage}%` : 0
+        }}
       ></div>
     </div>
   </div>
 );
 
 const Skills = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const skillsRef = useRef(null);
+
+  // Check if the skills section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false); // Reset when it's out of view
+        }
+      },
+      {
+        threshold: 0.5 // Trigger when 50% of the section is in view
+      }
+    );
+
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+    };
+  }, []);
+
   const skills = [
     { name: "Adobe Photoshop", icon: photoshopIcon, percentage: 90 },
     { name: "Adobe Illustrator", icon: illustratorIcon, percentage: 85 },
@@ -41,6 +75,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
+      ref={skillsRef}
       className="min-h-screen flex items-center justify-center relative text-black dark:text-white"
       style={{
         backgroundImage: `url(${bg})`,
@@ -62,7 +97,12 @@ const Skills = () => {
         {/* Skill Bars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skills.map((skill, index) => (
-            <SkillBar key={index} skill={skill} percentage={skill.percentage} />
+            <SkillBar
+              key={index}
+              skill={skill}
+              percentage={skill.percentage}
+              animate={isVisible}
+            />
           ))}
         </div>
       </div>

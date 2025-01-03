@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import my from "./../assets/my.jpg"; // Import the image
+import my from "./../assets/my2.jpg"; // Import the image
 
 const Header = () => {
   // State for Mobile Menu Toggle
@@ -30,8 +30,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo and Image Section */}
         <div className="flex items-center space-x-3">
-          <img src={my} alt="My Profile" className="w-10 h-10 rounded-full" />
-          <div className="text-2xl font-semibold text-[#fafafa] hover:text-[#60a5fa] transition-colors duration-300 cursor-pointer">
+          <img
+            src={my}
+            alt="My Profile"
+            className="w-10 h-10 rounded-full transition-transform duration-300 hover:scale-110"
+          />
+          <div className="text-2xl font-semibold text-[#fafafa] hover:text-[#60a5fa] transition-colors duration-300 cursor-pointer transform transition-transform duration-300 hover:scale-110">
             Ishan Nilaksha
           </div>
         </div>

@@ -81,6 +81,10 @@ const SocialMediaPosts = () => {
           ))}
         </div>
 
+        <div className="flex justify-center mb-6">
+          <ImageGrid />
+        </div>
+
         {/* Fiverr Button */}
         <motion.a
           href="https://www.fiverr.com/vector_ix/beautiful-vector-landscape-illustrations"
@@ -106,9 +110,6 @@ const SocialMediaPosts = () => {
         >
           <FaBehance className="text-2xl" /> Check Out on Behance
         </motion.a>
-
-        {/* Image Grid */}
-        <ImageGrid />
       </motion.div>
     </div>
   );

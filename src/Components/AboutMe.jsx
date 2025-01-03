@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import bg from "./../assets/bg4.jpg"; // Replace with the appropriate image
-import my from "./../assets/my.jpg"; // Import the image
+import my from "./../assets/my3.jpg"; // Import the image
 
 const Title = () => {
   return (
@@ -27,7 +27,7 @@ const ProfileImage = () => {
       animate={{ scale: 1 }}
       transition={{ duration: 1, delay: 0.3 }}
     >
-      <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#60a5fa] shadow-lg">
+      <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#60a5fa] shadow-lg transition-transform duration-300 hover:scale-110">
         <img
           src={my} // Use the imported image
           alt="Profile"
@@ -37,6 +37,7 @@ const ProfileImage = () => {
     </motion.div>
   );
 };
+
 const About = () => {
   return (
     <div
@@ -84,13 +85,14 @@ const About = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          I am an undergraduate of higher national diploma in electrical and
-          electronic engineering in Sri Lanka Advanced Technology Institute
+          I am an undergraduate of Higher National Diploma in Electrical and
+          Electronic engineering in Sri Lanka Advanced Technology Institute
           Galle. Successfully combine many of the practical knowledge with the
-          theoretical knowledge related to field of electrical engineering. I am
-          well qualified in the fields of adobe Photoshop and adobe illustrator
-          and can design any post, banners and cover design and many more
-          designing works related to these fields. I am an energetic,
+          theoretical knowledge related to field of Electrical and Electronic
+          Engineering. And also I am undergraduate in BIT University of Moratuwa
+          I am well qualified in the fields of adobe Photoshop and adobe
+          illustrator and can design any post, banners and cover design and many
+          more designing works related to these fields. I am an energetic,
           hardworking and enthusiastic person who enjoys a challenge with the
           intention of achieving personal goals and also ready to take up any
           challenges during the path of my career.

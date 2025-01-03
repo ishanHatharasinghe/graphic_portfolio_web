@@ -7,6 +7,26 @@ html {
 }
 #contactlinks {
   position: fixed;
-  top: 30%;
+  top: 25%;
   left: 4%;
+}
+.tooltip {
+  position: absolute;
+  bottom: 40px; /* Adjust position */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none;
+}
+
+a:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
