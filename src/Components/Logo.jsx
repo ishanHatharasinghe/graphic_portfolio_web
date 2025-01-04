@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import bg from "./../assets/bg3.jpg";
 import MayaLogo from "./../Components/LogoMaya";
 import LogoMascot from "./../Components/LogoMascot";
@@ -19,7 +21,11 @@ const Logo = () => {
   };
 
   const SectionToggle = ({ title, isOpen, onClick, children }) => (
-    <div className="w-full mt-8 px-2 mb-4">
+    <div
+      className="w-full mt-8 px-2 mb-4"
+      data-aos="fade-up" // Apply AOS effect here
+      data-aos-duration="1000" // Control animation speed
+    >
       <motion.div
         className="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-800 hover:text-blue-600 transition-all duration-300"
         onClick={onClick}
@@ -56,6 +62,17 @@ const Logo = () => {
     </div>
   );
 
+  // Initialize AOS when the component mounts
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false // Make it run every time the section enters the viewport
+    });
+
+    // Reinitialize AOS when component updates
+    AOS.refresh();
+  }, []);
+
   return (
     <div
       id="logo"
@@ -80,31 +97,28 @@ const Logo = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
+        data-aos="fade-up" // AOS effect for content container
+        data-aos-duration="1200"
       >
         {/* Title */}
-        <motion.h1
+
+        <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#1D4ED8] to-[#9333EA]"
-          style={{
-            lineHeight: "1.2",
-            paddingBottom: "0.2em"
-          }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
+          data-aos="fade-up"
         >
           Logo Design
-        </motion.h1>
+        </h1>
 
         {/* Description */}
-        <motion.p
+        <p
           className="text-lg leading-relaxed text-center mb-8"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           Discover the essence of our brand through our iconic logo. It
           represents our vision, mission, and dedication to excellence.
-        </motion.p>
+        </p>
 
         {/* MayaLogo Section */}
         <SectionToggle
@@ -134,6 +148,8 @@ const Logo = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
+          data-aos="fade-up" // AOS effect for Fiverr button
+          data-aos-duration="1200"
         >
           <SiFiverr className="text-2xl" /> Check Out on Fiverr
         </motion.a>
@@ -147,6 +163,8 @@ const Logo = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
+          data-aos="fade-up" // AOS effect for Behance button
+          data-aos-duration="1200"
         >
           <FaBehance className="text-2xl" /> Check Out on Behance
         </motion.a>

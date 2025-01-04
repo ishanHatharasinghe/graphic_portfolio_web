@@ -2,10 +2,15 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaBrush, FaImage, FaPenNib, FaVideo, FaBook } from "react-icons/fa";
 import bg from "./../assets/bg.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Content = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState("");
+
+  // Initialize AOS
+  AOS.init();
 
   // Handle scroll to the section
   const scrollToSection = (sectionId) => {
@@ -41,18 +46,13 @@ const Content = () => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
-        <motion.h1
+        <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#1D4ED8] to-[#9333EA]"
-          style={{
-            lineHeight: "1.2",
-            paddingBottom: "0.2em"
-          }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
+          data-aos="fade-up"
         >
           My Design Services
-        </motion.h1>
+        </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Section 1: Social Media Post Design */}
@@ -61,6 +61,7 @@ const Content = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
+            data-aos="fade-up"
           >
             <div className="flex justify-center mb-4">
               <FaBrush className="text-4xl text-white" />
@@ -89,6 +90,7 @@ const Content = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
             onClick={() => handleModal("Logo Design details...")}
+            data-aos="fade-up"
           >
             <div className="flex justify-center mb-4">
               <FaPenNib className="text-4xl text-white" />
@@ -117,6 +119,7 @@ const Content = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.9 }}
             onClick={() => handleModal("YouTube Thumbnails details...")}
+            data-aos="fade-up"
           >
             <div className="flex justify-center mb-4">
               <FaVideo className="text-4xl text-white" />
@@ -145,6 +148,7 @@ const Content = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
             onClick={() => handleModal("Social Media Cover Images details...")}
+            data-aos="fade-up"
           >
             <div className="flex justify-center mb-4">
               <FaImage className="text-4xl text-white" />
@@ -173,6 +177,7 @@ const Content = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.5 }}
             onClick={() => handleModal("Tute/Book Cover details...")}
+            data-aos="fade-up"
           >
             <div className="flex justify-center mb-4">
               <FaBook className="text-4xl text-white" />

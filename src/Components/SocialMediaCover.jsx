@@ -20,7 +20,7 @@ const SocialMediaCover = () => {
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center"
       }}
     >
       {/* Overlay */}
@@ -39,29 +39,26 @@ const SocialMediaCover = () => {
         transition={{ duration: 1.2 }}
       >
         {/* Title */}
-        <motion.h1
+
+        <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#1D4ED8] to-[#9333EA]"
-          style={{
-            lineHeight: "1.2",
-            paddingBottom: "0.2em",
-          }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
+          data-aos="fade-up"
         >
           Social Media Cover Images
-        </motion.h1>
+        </h1>
 
         {/* Description */}
-        <motion.p
+
+        <p
           className="text-lg leading-relaxed text-center mb-8"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           Explore our captivating social media cover images that will help make
-          your profile stand out. Crafted with care and creativity for every brand!
-        </motion.p>
+          your profile stand out. Crafted with care and creativity for every
+          brand!
+        </p>
 
         {/* Full-Size Images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
@@ -69,9 +66,10 @@ const SocialMediaCover = () => {
             <motion.div
               key={index}
               className="w-full col-span-1 md:col-span-2 lg:col-span-3"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 * index }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.01 * index }}
+              viewport={{ once: false }} // Ensures the animation runs each time the element enters the viewport
             >
               <img
                 src={image}
@@ -86,9 +84,10 @@ const SocialMediaCover = () => {
             <motion.div
               key={index + 3} // Ensures unique keys for the rest of the images
               className="w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 * (index + 3) }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.02 * (index + 3) }}
+              viewport={{ once: false }}
             >
               <img
                 src={image}
@@ -101,16 +100,19 @@ const SocialMediaCover = () => {
 
         {/* Fiverr Button */}
         <motion.a
-          href="https://www.fiverr.com/vector_ix/beautiful-vector-landscape-illustrations"
+          href="https://www.fiverr.com/vector_ix/design-attractive-amazing-viral-youtube-thumbnail-for-you"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 text-white bg-[#00A529FF] hover:bg-[#0044FFFF] px-6 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all duration-300 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
+          data-aos="fade-up" // AOS effect for Fiverr button
+          data-aos-duration="1200"
         >
           <SiFiverr className="text-2xl" /> Check Out on Fiverr
         </motion.a>
+
         {/* Behance Button */}
         <motion.a
           href="https://www.behance.net/ishannilaksha" // Replace with your Behance profile URL
@@ -120,10 +122,11 @@ const SocialMediaCover = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
+          data-aos="fade-up" // AOS effect for Behance button
+          data-aos-duration="1200"
         >
           <FaBehance className="text-2xl" /> Check Out on Behance
         </motion.a>
-        
       </motion.div>
     </div>
   );

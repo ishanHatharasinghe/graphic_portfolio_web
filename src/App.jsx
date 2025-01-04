@@ -13,6 +13,9 @@ import Contact from "./Components/Contact";
 import Skills from "./Components/Skills";
 import Copyright from "./Components/Copyright";
 import ContactLinks from "./Components/ContactLinks";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const [count, setCount] = useState(0);

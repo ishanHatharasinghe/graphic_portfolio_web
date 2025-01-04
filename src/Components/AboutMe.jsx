@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import bg from "./../assets/bg4.jpg"; // Replace with the appropriate image
 import my from "./../assets/my3.jpg"; // Import the image
@@ -39,6 +40,25 @@ const ProfileImage = () => {
 };
 
 const About = () => {
+  const [inView, setInView] = useState(false);
+
+  const handleScroll = () => {
+    const element = document.getElementById("about");
+    const rect = element.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      setInView(true);
+    } else {
+      setInView(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
       id="about"
@@ -54,7 +74,7 @@ const About = () => {
       <motion.div
         className="absolute top-0 left-0 w-full h-full bg-black/70 z-0"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: inView ? 1 : 0 }}
         transition={{ duration: 1 }}
       />
 
@@ -62,7 +82,7 @@ const About = () => {
       <motion.div
         className="relative z-10 max-w-3xl sm:max-w-4xl text-center text-white px-6 py-10 bg-gradient-to-b from-[#0a0a0a] to-transparent rounded-xl shadow-lg"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
         transition={{ duration: 1.2 }}
       >
         <Title />
@@ -72,7 +92,7 @@ const About = () => {
         <motion.h3
           className="text-xl md:text-2xl font-semibold mb-4 text-[#fafafa]"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: inView ? 1 : 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           Graphic Designer!
@@ -82,7 +102,7 @@ const About = () => {
         <motion.p
           className="text-base md:text-lg leading-relaxed mb-6 text-[#fafafa]"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: inView ? 1 : 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
           I am an undergraduate of Higher National Diploma in Electrical and

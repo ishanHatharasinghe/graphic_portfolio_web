@@ -33,34 +33,32 @@ const YoutubeThumbnails = () => {
         transition={{ duration: 1.2 }}
       >
         {/* Title */}
-        <motion.h1
+        <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#E50914] to-[#FF5722]"
-          style={{
-            lineHeight: "1.2",
-            paddingBottom: "0.2em"
-          }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
+          data-aos="fade-up"
         >
           YouTube Thumbnails
-        </motion.h1>
+        </h1>
 
         {/* Description */}
-        <motion.p
+        <p
           className="text-lg leading-relaxed text-center mb-8"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
+          data-aos="fade-up"
         >
           Check out our stunning YouTube thumbnails that capture attention and
           drive views! Perfectly crafted to enhance your video content.
-        </motion.p>
+        </p>
 
         {/* Thumbnail Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-8 mb-12">
           {[thumbnail1, thumbnail2, thumbnail3].map((thumbnail, index) => (
-            <motion.div
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1200"
               key={index}
               className="w-full relative group rounded-lg overflow-hidden shadow-lg"
               initial={{ opacity: 0 }}
@@ -72,12 +70,14 @@ const YoutubeThumbnails = () => {
                 alt={`YouTube Thumbnail ${index + 1}`}
                 className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-all duration-300"
               />
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Fiverr Button */}
-        <motion.a
+        <a
+          data-aos="fade-up" // AOS effect for content container
+          data-aos-duration="1200"
           href="https://www.fiverr.com/vector_ix/design-attractive-amazing-viral-youtube-thumbnail-for-you"
           target="_blank"
           rel="noopener noreferrer"
@@ -87,7 +87,7 @@ const YoutubeThumbnails = () => {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <SiFiverr className="text-2xl" /> Check Out on Fiverr
-        </motion.a>
+        </a>
         {/* Behance Button */}
         <motion.a
           href="https://www.behance.net/ishannilaksha" // Replace with your Behance profile URL
@@ -97,6 +97,8 @@ const YoutubeThumbnails = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
+          data-aos="fade-up" // AOS effect for Behance button
+          data-aos-duration="1200"
         >
           <FaBehance className="text-2xl" /> Check Out on Behance
         </motion.a>

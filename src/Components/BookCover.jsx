@@ -46,7 +46,7 @@ const BookCover = () => {
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center"
       }}
     >
       {/* Overlay */}
@@ -65,56 +65,69 @@ const BookCover = () => {
         transition={{ duration: 1.2 }}
       >
         {/* Title */}
-        <motion.h1
+
+        <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#1D4ED8] to-[#9333EA]"
-          style={{
-            lineHeight: "1.2",
-            paddingBottom: "0.2em",
-          }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
+          data-aos="fade-up"
         >
           Book Cover Images
-        </motion.h1>
+        </h1>
 
         {/* Description */}
-        <motion.p
+        <p
           className="text-lg leading-relaxed text-center mb-8"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           Discover our beautifully designed book covers that will make your
           publication stand out. Created for authors, publishers, and book
           enthusiasts!
-        </motion.p>
+        </p>
 
         {/* Images Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
           {/* First 3 images (small size) */}
-          {[img1, img2, img3,img4, img5, img6, img7, img8, img9, img10].map((image, index) => (
-            <motion.div
-              key={index}
-              className="w-full col-span-1 md:col-span-1 lg:col-span-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 * index }}
-            >
-              <img
-                src={image}
-                alt={`Book Cover ${index + 1}`}
-                className="w-full h-48 object-cover rounded-lg shadow-lg group hover:scale-105 transition-all duration-300"
-              />
-            </motion.div>
-          ))}
+          {[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10].map(
+            (image, index) => (
+              <motion.div
+                key={index + 3} // Ensures unique keys for the rest of the images
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.02 * (index + 3) }}
+                viewport={{ once: false }}
+              >
+                <img
+                  src={image}
+                  alt={`Book Cover ${index + 1}`}
+                  className="w-full h-48 object-cover rounded-lg shadow-lg group hover:scale-105 transition-all duration-300"
+                />
+              </motion.div>
+            )
+          )}
 
           {/* Remaining images (only show if 'showMore' is true) */}
           {showMore &&
             [
-               img11, img12, img13,
-              img14, img15, img16, img17, img18, img19, img20, img21, img22,
-              img23, img24, img25, img26, img27, img28, img29,
+              img11,
+              img12,
+              img13,
+              img14,
+              img15,
+              img16,
+              img17,
+              img18,
+              img19,
+              img20,
+              img21,
+              img22,
+              img23,
+              img24,
+              img25,
+              img26,
+              img27,
+              img28,
+              img29
             ].map((image, index) => (
               <motion.div
                 key={index + 3}
@@ -133,27 +146,31 @@ const BookCover = () => {
         </div>
 
         {/* Show More Toggle */}
-<motion.div
-  className="flex items-center justify-center text-white cursor-pointer"
-  onClick={toggleShowMore}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1, delay: 0.7 }}
->
-  <span className="mr-2 text-lg font-semibold">{showMore ? "Hide" : "Show More"} </span>
-  <span className="text-xl">{showMore ? "▲" : "▼"}</span> {/* Up or Down arrow */}
-</motion.div>
-
+        <motion.div
+          className="flex items-center justify-center text-white cursor-pointer"
+          onClick={toggleShowMore}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
+        >
+          <span className="mr-2 text-lg font-semibold">
+            {showMore ? "Hide" : "Show More"}{" "}
+          </span>
+          <span className="text-xl">{showMore ? "▲" : "▼"}</span>{" "}
+          {/* Up or Down arrow */}
+        </motion.div>
 
         {/* Fiverr Button */}
         <motion.a
-          href="https://www.fiverr.com/sellers/vector_ix/"
+          href="https://www.fiverr.com/vector_ix/design-attractive-amazing-viral-youtube-thumbnail-for-you"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 text-white bg-[#00A529FF] hover:bg-[#0044FFFF] px-6 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all duration-300 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
+          data-aos="fade-up" // AOS effect for Fiverr button
+          data-aos-duration="1200"
         >
           <SiFiverr className="text-2xl" /> Check Out on Fiverr
         </motion.a>
@@ -167,6 +184,8 @@ const BookCover = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
+          data-aos="fade-up" // AOS effect for Behance button
+          data-aos-duration="1200"
         >
           <FaBehance className="text-2xl" /> Check Out on Behance
         </motion.a>
