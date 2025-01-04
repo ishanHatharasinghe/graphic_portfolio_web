@@ -20,8 +20,7 @@ const SkillBar = ({ skill, percentage, animate }) => (
           <span className="text-white text-lg font-semibold">{skill.name}</span>
           <span className="text-white text-sm font-medium mt-1">
             {percentage}%
-          </span>{" "}
-          {/* Added margin-top to create space */}
+          </span>
         </div>
       </div>
     </div>
@@ -29,7 +28,7 @@ const SkillBar = ({ skill, percentage, animate }) => (
       <div
         className={`h-full ${
           animate ? "bg-[#1EFF2DFF]" : "bg-[#1a1a1a]"
-        } transition-all duration-1000 ease-in-out group-hover:bg-[#001EFFFF]`}
+        } transition-all duration-700 ease-in-out group-hover:bg-[#001EFFFF]`}
         style={{
           width: animate ? `${percentage}%` : 0
         }}
@@ -42,7 +41,7 @@ const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const skillsRef = useRef(null);
 
-  // Check if the skills section is in view
+  // Check if the skills section is in view with reduced updates
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -96,7 +95,7 @@ const Skills = () => {
         className="relative z-10 max-w-6xl text-center text-white px-8 py-14 bg-gradient-to-b from-[#000000FF] to-transparent rounded-xl shadow-lg"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 1.2, ease: "easeOut" }} // Use easeOut for smoother end of animation
       >
         {/* Title */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0000FF]">
