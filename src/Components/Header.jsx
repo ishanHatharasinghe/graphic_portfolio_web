@@ -98,7 +98,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="font-bold text-white bg-[#E90000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
           >
-            Find Me
+            Engineer Mode
           </a>
         </nav>
 
@@ -170,7 +170,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="block font-bold text-white bg-[#FF0000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
           >
-            Engeneer Mode
+            Engineer Mode
           </a>
         </div>
       )}
