@@ -12,6 +12,8 @@ import gig4 from "./../assets/Social Media Posts/a.jpg";
 import gig5 from "./../assets/Social Media Posts/b.jpg";
 import gig6 from "./../assets/Social Media Posts/c.jpg";
 import gig7 from "./../assets/Social Media Posts/d.jpg";
+import gig8 from "./../assets/Social Media Posts/e.jpg";
+
 import { FaBehance } from "react-icons/fa";
 
 const SocialMediaPosts = () => {
@@ -71,20 +73,22 @@ const SocialMediaPosts = () => {
 
         {/* Full-Size Images */}
         <div className="grid grid-cols-1 gap-8 mb-12">
-          {[gig1, gig2, gig3, gig4, gig5, gig6, gig7].map((image, index) => (
-            <div
-              key={index}
-              className="w-full"
-              data-aos="fade-up"
-              data-aos-delay={20 * (index + 1)}
-            >
-              <img
-                src={image}
-                alt={`Social Media Post ${index + 1}`}
-                className="w-full h-auto rounded-lg shadow-lg group hover:scale-105 transition-all duration-300"
-              />
-            </div>
-          ))}
+          {[gig1, gig2, gig3, gig4, gig5, gig6, gig7, gig8].map(
+            (image, index) => (
+              <div
+                key={index}
+                className="w-full"
+                data-aos="fade-up"
+                data-aos-delay={20 * (index + 1)}
+              >
+                <img
+                  src={image}
+                  alt={`Social Media Post ${index + 1}`}
+                  className="w-full h-auto rounded-lg shadow-lg group hover:scale-105 transition-all duration-300"
+                />
+              </div>
+            )
+          )}
         </div>
 
         <div className="flex justify-center mb-6" data-aos="fade-up">
