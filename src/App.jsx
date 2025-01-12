@@ -13,7 +13,7 @@ import Contact from "./Components/Contact";
 import Skills from "./Components/Skills";
 import Copyright from "./Components/Copyright";
 import ContactLinks from "./Components/ContactLinks";
-import DigitalClock from "./Components/DigitalClock";
+import TempHome from "./Components/TempHome";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -34,12 +34,11 @@ function App() {
         <ContactLinks />
       </div>
       <Header />
-      <div>
-        <DigitalClock />
+
+      <div id="temphome">
+        <TempHome />
       </div>
-      <div id="home">
-        <Home />
-      </div>
+
       <div id="about">
         <AboutMe />
       </div>

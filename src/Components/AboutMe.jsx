@@ -3,17 +3,23 @@ import { motion } from "framer-motion";
 import bg from "./../assets/bg4.jpg"; // Replace with the appropriate image
 import my from "./../assets/my3.jpg"; // Import the image
 
+const styles = {
+  pagePadding: {
+    paddingTop: "4rem",
+    paddingBottom: "3rem"
+  },
+  backgroundImage: {
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat"
+  }
+};
+
 const Title = () => {
   return (
     <motion.h2
-      className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] to-[#2563eb]"
-      style={{
-        lineHeight: "1.3", // Ensure sufficient line height to avoid clipping
-        paddingBottom: "0.2em" // Add padding to avoid bottom clipping
-      }}
-      initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
+      className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#1D4ED8] to-[#9333EA]"
+      style={{ lineHeight: "1.2", paddingBottom: "0.2em" }}
     >
       About Me
     </motion.h2>
@@ -64,10 +70,9 @@ const About = () => {
       id="about"
       className="min-h-screen flex items-center justify-center relative text-black dark:text-white"
       style={{
+        ...styles.pagePadding,
         backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        ...styles.backgroundImage
       }}
     >
       {/* Overlay */}

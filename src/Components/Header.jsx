@@ -8,6 +8,10 @@ const Header = () => {
   // State for Content Dropdown
   const [isContentDropdownOpen, setContentDropdownOpen] = useState(false);
 
+  // State for Alert
+  const [alertMessage, setAlertMessage] = useState("");
+  const [isAlertVisible, setAlertVisible] = useState(false);
+
   // Toggle Mobile Menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -20,9 +24,17 @@ const Header = () => {
   };
 
   // Close All Menus when any item is clicked
-  const handleLinkClick = () => {
+  const handleLinkClick = (message) => {
     setMobileMenuOpen(false);
     setContentDropdownOpen(false);
+    showAlert(message);
+  };
+
+  // Show Alert
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    setAlertVisible(true);
+    setTimeout(() => setAlertVisible(false), 3000); // Hide alert after 3 seconds
   };
 
   return (
@@ -47,7 +59,7 @@ const Header = () => {
               key={item}
               href={`#${item.toLowerCase()}`}
               className="font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(`Here are the ${item} Tab`)}
             >
               {item}
             </a>
@@ -74,7 +86,7 @@ const Header = () => {
                     key={name}
                     href={`#${id}`}
                     className="font-bold block text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-                    onClick={handleLinkClick}
+                    onClick={() => handleLinkClick(name)}
                   >
                     {name}
                   </a>
@@ -86,7 +98,7 @@ const Header = () => {
           <a
             href="#contact"
             className="font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-            onClick={handleLinkClick}
+            onClick={() => handleLinkClick("Contact Me")}
           >
             Contact Me
           </a>
@@ -96,6 +108,7 @@ const Header = () => {
             href="https://ishanHatharasinghe.github.io/portfolio_web"
             rel="noopener noreferrer"
             className="font-bold text-white bg-[#E90000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
+            onClick={() => showAlert("You clicked Engineer Mode")}
           >
             Engineer Mode
           </a>
@@ -119,7 +132,7 @@ const Header = () => {
               key={item}
               href={`#${item.toLowerCase()}`}
               className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(`Here are the ${item} Tab`)}
             >
               {item}
             </a>
@@ -146,7 +159,7 @@ const Header = () => {
                     key={name}
                     href={`#${id}`}
                     className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-                    onClick={handleLinkClick}
+                    onClick={() => handleLinkClick(name)}
                   >
                     {name}
                   </a>
@@ -158,7 +171,7 @@ const Header = () => {
           <a
             href="#contact"
             className="block font-bold text-[#fafafa] px-3 py-2 rounded-md hover:bg-[#2563eb] hover:text-white transition-all duration-300"
-            onClick={handleLinkClick}
+            onClick={() => handleLinkClick("Contact Me")}
           >
             Contact Me
           </a>
@@ -168,9 +181,33 @@ const Header = () => {
             href="https://ishanHatharasinghe.github.io/portfolio_web"
             rel="noopener noreferrer"
             className="block font-bold text-white bg-[#FF0000FF] px-4 py-2 rounded-md hover:bg-[#0008FFFF] transition-all duration-300"
+            onClick={() => showAlert("You clicked Engineer Mode")}
           >
             Engineer Mode
           </a>
+        </div>
+      )}
+
+      {/* Alert Notification */}
+      {isAlertVisible && (
+        <div
+          role="alert"
+          className="fixed top-4 right-4 bg-gray-800 text-white p-4 rounded shadow-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="stroke-info h-6 w-6 shrink-0 inline-block mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <span>{alertMessage}</span>
         </div>
       )}
     </header>

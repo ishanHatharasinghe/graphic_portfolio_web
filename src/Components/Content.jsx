@@ -69,6 +69,10 @@ const Content = () => {
             <h2 className="text-2xl font-semibold mb-4 text-center">
               Social Media Post Design
             </h2>
+            <div className="flex justify-center items-center mb-4">
+              <progress className="text-center progress w-56"></progress>
+            </div>
+
             <p className="text-lg leading-relaxed text-center">
               Eye-catching social media post designs that captivate your
               audience and boost engagement.
@@ -98,6 +102,9 @@ const Content = () => {
             <h2 className="text-2xl font-semibold mb-4 text-center">
               Logo Design
             </h2>
+            <div className="flex justify-center items-center mb-4">
+              <progress className="text-center progress w-56"></progress>
+            </div>
             <p className="text-lg leading-relaxed text-center">
               Custom logos that embody your brand's identity and make a
               memorable impact.
@@ -127,6 +134,9 @@ const Content = () => {
             <h2 className="text-2xl font-semibold mb-4 text-center">
               YouTube Thumbnails
             </h2>
+            <div className="flex justify-center items-center mb-4">
+              <progress className="text-center progress w-56"></progress>
+            </div>
             <p className="text-lg leading-relaxed text-center">
               Catchy and vibrant YouTube thumbnails that boost views and attract
               clicks.
@@ -156,6 +166,9 @@ const Content = () => {
             <h2 className="text-2xl font-semibold mb-4 text-center">
               Social Media Cover Images
             </h2>
+            <div className="flex justify-center items-center mb-4">
+              <progress className="text-center progress w-56"></progress>
+            </div>
             <p className="text-lg leading-relaxed text-center">
               Professionally crafted covers to enhance your social media
               presence.
@@ -185,6 +198,9 @@ const Content = () => {
             <h2 className="text-2xl font-semibold mb-4 text-center">
               Tute/Book Cover
             </h2>
+            <div className="flex justify-center items-center mb-4">
+              <progress className="text-center progress w-56"></progress>
+            </div>
             <p className="text-lg leading-relaxed text-center">
               Stunning covers for books, tutorials, and more that grab
               attention.

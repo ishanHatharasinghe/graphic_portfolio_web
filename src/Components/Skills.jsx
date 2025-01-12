@@ -98,7 +98,7 @@ const Skills = () => {
         transition={{ duration: 1.2, ease: "easeOut" }} // Use easeOut for smoother end of animation
       >
         {/* Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0000FF]">
+        <h2 className=" text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0000FF]">
           Skills
         </h2>
 
