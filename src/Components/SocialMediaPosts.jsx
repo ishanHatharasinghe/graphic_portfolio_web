@@ -13,6 +13,7 @@ import gig5 from "./../assets/Social Media Posts/b.jpg";
 import gig6 from "./../assets/Social Media Posts/c.jpg";
 import gig7 from "./../assets/Social Media Posts/d.jpg";
 import gig8 from "./../assets/Social Media Posts/e.jpg";
+import gig9 from "./../assets/Social Media Posts/f.jpg";
 
 import { FaBehance } from "react-icons/fa";
 
@@ -73,7 +74,7 @@ const SocialMediaPosts = () => {
 
         {/* Full-Size Images */}
         <div className="grid grid-cols-1 gap-8 mb-12">
-          {[gig1, gig2, gig3, gig4, gig5, gig6, gig7, gig8].map(
+          {[gig1, gig2, gig3, gig4, gig5, gig6, gig7, gig8, gig9].map(
             (image, index) => (
               <div
                 key={index}

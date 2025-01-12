@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { FaArrowDown, FaBriefcase, FaEnvelope } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 import { useState } from "react";
-import bg from "./../assets/bg5.jpg";
-import temp1 from "./../assets/TempScreen/1.png";
+import bg from "./../assets/TempScreen/Thai Pongal/bg5.jpg";
+import temp1 from "./../assets/TempScreen/Thai Pongal/1.png";
 
 const TempHome = () => {
   const [isTextVisible, setIsTextVisible] = useState(true);

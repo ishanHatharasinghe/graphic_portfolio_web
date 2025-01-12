@@ -145,12 +145,14 @@ import Image142 from "./../assets/Social Media Posts/lower (115).jpg";
 import Image143 from "./../assets/Social Media Posts/lower (116).jpg";
 import Image144 from "./../assets/Social Media Posts/lower (117).jpg";
 import Image145 from "./../assets/Social Media Posts/lower (118).jpg";
+import Image146 from "./../assets/Social Media Posts/upper (28).jpg";
 
 const ImageGrid = () => {
   const [showAll, setShowAll] = useState(false);
 
   const images = [
     Image1,
+    Image146,
     Image2,
     Image3,
     Image4,
