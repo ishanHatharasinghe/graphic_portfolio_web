@@ -35,8 +35,8 @@ function App() {
       </div>
       <Header />
 
-      <div id="temphome">
-        <TempHome />
+      <div id="home">
+        <Home />
       </div>
 
       <div id="about">
