@@ -12,8 +12,9 @@ import BookCover from "./Components/BookCover";
 import Contact from "./Components/Contact";
 import Skills from "./Components/Skills";
 import Copyright from "./Components/Copyright";
-import ContactLinks from "./Components/ContactLinks";
 import TempHome from "./Components/TempHome";
+import UIUX from "./Components/UX-UI-Designs";
+import Tdesigns from "./Components/TDesigns";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -30,9 +31,6 @@ function App() {
 
   return (
     <>
-      <div className="absolute inset-y-0 left-4 flex items-center z-30 hidden sm:block">
-        <ContactLinks />
-      </div>
       <Header />
 
       <div id="home">
@@ -62,6 +60,9 @@ function App() {
       </div>
       <div id="bookCover">
         <BookCover />
+      </div>
+      <div id="Tdesigns">
+        <Tdesigns />
       </div>
       <div id="contact">
         <Contact />
