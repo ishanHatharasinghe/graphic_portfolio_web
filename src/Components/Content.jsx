@@ -8,7 +8,11 @@ import {
   FaVideo,
   FaBook,
   FaBezierCurve,
-  FaTshirt
+  FaTshirt,
+  FaIdCard,
+  FaFileAlt,
+  FaBookmark,
+  FaFlag
 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -29,7 +33,7 @@ const services = [
     Icon: FaBrush,
     title: "Social Media Post Design",
     desc: "Eye‑catching social posts that captivate your audience and boost engagement.",
-    target: "socialmediaposts",
+    target: "socialMediaPosts",
     level: 95,
     delay: 0.1
   },
@@ -45,7 +49,7 @@ const services = [
     Icon: FaVideo,
     title: "YouTube Thumbnails",
     desc: "Bold, high‑contrast thumbnails that increase CTR and grow channel reach.",
-    target: "youtubethumbnails",
+    target: "youtubeThumbnails",
     level: 92,
     delay: 0.3
   },
@@ -53,7 +57,7 @@ const services = [
     Icon: FaImage,
     title: "Social Media Cover Images",
     desc: "Professional covers tailored to platforms for a cohesive brand presence.",
-    target: "socialmediacover",
+    target: "socialMediaCover",
     level: 88,
     delay: 0.4
   },
@@ -61,18 +65,49 @@ const services = [
     Icon: FaBook,
     title: "Tute/Book Cover",
     desc: "Striking editorial covers with strong hierarchy and timeless typography.",
-    target: "bookcover",
+    target: "bookCover",
     level: 87,
     delay: 0.5
   },
-  // NEW: T‑Shirt Design card (scrolls to the section below)
   {
     Icon: FaTshirt,
     title: "T‑Shirt Design",
     desc: "Custom apparel graphics, mockups, and print‑ready files for any method.",
-    target: "tshirtdesign",
+    target: "Tdesigns",
     level: 91,
+    delay: 0.6
+  },
+  {
+    Icon: FaIdCard,
+    title: "Business Card Design",
+    desc: "Professional business cards with premium finishes and memorable layouts.",
+    target: "BusinessCarddesigns",
+    level: 89,
     delay: 0.7
+  },
+  {
+    Icon: FaFileAlt,
+    title: "CV/Resume Design",
+    desc: "Clean, modern CV layouts that showcase your skills and stand out to employers.",
+    target: "CV",
+    level: 86,
+    delay: 0.8
+  },
+  {
+    Icon: FaBookmark,
+    title: "Bookmark Design",
+    desc: "Custom bookmarks with artistic flair and durable print specifications.",
+    target: "Bookmark",
+    level: 84,
+    delay: 0.9
+  },
+  {
+    Icon: FaFlag,
+    title: "Banner & Poster Design",
+    desc: "Large format prints and banners for events, advertising, and displays.",
+    target: "Banner",
+    level: 93,
+    delay: 1.0
   }
 ];
 
@@ -151,11 +186,11 @@ const Content = () => {
 
       {/* Cards */}
       <div className="relative max-w-7xl mx-auto px-6 pt-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {services.map((s) => (
             <div
               key={s.title}
-              className="group relative rounded-2xl p-6 bg-white/[0.06] hover:bg-white/[0.09] backdrop-blur-xl ring-1 ring-white/10 shadow-[0_20px_70px_-20px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_90px_-20px_rgba(0,0,0,0.7)] transition-all duration-500 overflow-hidden"
+              className="group relative rounded-xl p-4 bg-white/[0.06] hover:bg-white/[0.09] backdrop-blur-xl ring-1 ring-white/10 shadow-[0_20px_70px_-20px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_90px_-20px_rgba(0,0,0,0.7)] transition-all duration-500 overflow-hidden"
               data-aos="fade-up"
               data-aos-delay={Math.round(s.delay * 1000)}
             >
@@ -165,29 +200,29 @@ const Content = () => {
               </div>
 
               {/* Icon */}
-              <div className="flex justify-center mb-5">
-                <div className="relative rounded-2xl p-3 ring-1 ring-white/10 bg-[#0A0B0D]/40">
-                  <div className="absolute -inset-2 rounded-2xl bg-[#B08B57]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <s.Icon className="w-8 h-8 md:w-10 md:h-10 text-[#E7DFD6]" />
+              <div className="flex justify-center mb-3">
+                <div className="relative rounded-xl p-2 ring-1 ring-white/10 bg-[#0A0B0D]/40">
+                  <div className="absolute -inset-1 rounded-xl bg-[#B08B57]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <s.Icon className="w-6 h-6 text-[#E7DFD6]" />
                 </div>
               </div>
 
               {/* Title */}
-              <h2 className="text-xl md:text-2xl font-semibold text-center">
+              <h2 className="text-lg md:text-xl font-semibold text-center">
                 {s.title}
               </h2>
 
               {/* Progress */}
-              <div className="flex justify-center items-center mt-4 mb-3">
+              <div className="flex justify-center items-center mt-3 mb-2">
                 <div
-                  className="w-48 md:w-56"
+                  className="w-40 md:w-44"
                   role="progressbar"
                   aria-valuemin={0}
                   aria-valuemax={100}
                   aria-valuenow={s.level}
                   aria-label={`${s.title} expertise`}
                 >
-                  <div className="relative h-2.5 rounded-full bg-white/10 overflow-hidden">
+                  <div className="relative h-2 rounded-full bg-white/10 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent" />
                     <div
                       className={`relative h-full rounded-full bg-gradient-to-r from-[#C89B67] via-[#B08B57] to-[#8B6A3A] shadow-[0_6px_24px_-6px_rgba(176,139,87,0.7)] ${

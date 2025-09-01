@@ -1,6 +1,5 @@
 // src/Components/Contact.jsx
 import React, { useEffect, useState, useRef } from "react";
-import bg from "./../assets/bg4.jpg";
 import {
   FaFacebook,
   FaLinkedin,
@@ -66,54 +65,7 @@ const Contact = () => {
     setMouse({ x: `${x}%`, y: `${y}%` });
   };
 
-  const socials = [
-    {
-      label: "GitHub",
-      href: "https://github.com/ishanHatharasinghe",
-      Icon: FaGithub
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/ishan-nilaksha-686461308/",
-      Icon: FaLinkedin
-    },
-    {
-      label: "Fiverr",
-      href: "https://www.fiverr.com/sellers/vector_ix/",
-      Icon: SiFiverr
-    },
-    {
-      label: "Behance",
-      href: "https://www.behance.net/ishannilaksha",
-      Icon: FaBehanceSquare
-    },
-    {
-      label: "WhatsApp",
-      href: "https://wa.me/94703052181",
-      Icon: FaSquareWhatsapp
-    },
-    {
-      label: "Email",
-      href: "mailto:ishanhatharasinghe222@gmail.com",
-      Icon: MdEmail
-    },
-    {
-      label: "Facebook",
-      href: "https://www.facebook.com/share/1QPksjDfsK/?mibextid=qi2Omg",
-      Icon: FaFacebook
-    },
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/ishan_hatharasinghe/",
-      Icon: FaInstagramSquare
-    },
-    {
-      label: "Address",
-      href: "https://www.google.com/maps/dir/6.301967,80.610486/Beralapanathara,+Matara+-+Hakmana+Road/@6.309715,80.5673928,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae3e29df098bdef:0x1f156755cd0421b5!2m2!1d80.6043!2d6.32296?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
-      Icon: FaAddressBook
-    },
-    { label: "Phone", href: "tel:+94703052181", Icon: LuPhoneCall }
-  ];
+  const socials = [];
 
   // Form helpers
   const isValidEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
@@ -266,7 +218,7 @@ const Contact = () => {
                   value={form.name}
                   onChange={(e) => setField("name", e.target.value)}
                   onBlur={() => setTouched((t) => ({ ...t, name: true }))}
-                  placeholder="John Doe"
+                  placeholder="Please enter your name"
                   className={`w-full rounded-xl bg-[#0A0B0D]/50 ring-1 ${
                     touched.name && errors.name
                       ? "ring-red-500/60"

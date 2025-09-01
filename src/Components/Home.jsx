@@ -1,9 +1,9 @@
 // src/Components/Home.jsx
 import { useEffect, useRef, useState } from "react";
 import Statue from "../assets/Home Section/marble-greek-goddess-themis-wearing-crown-with-wings.jpg";
-import Image1 from "./../assets/Social Media Posts/upper (1).jpg";
-import Image2 from "./../assets/Social Media Posts/upper (2).jpg";
-import Image3 from "./../assets/Social Media Posts/upper (3).jpg";
+import Image1 from "./../assets/Tshirt Designs/1.jpg";
+import Image2 from "./../assets/Tshirt Designs/3.jpg";
+import Image3 from "./../assets/Tshirt Designs/5.jpg";
 
 // Brand colors adjusted for dark theme
 const COLORS = {
@@ -240,11 +240,11 @@ const HomePage = () => {
                 <h1 className="text-5xl lg:text-7xl font-extrabold leading-[1.05] relative">
                   <span className="block overflow-hidden">
                     <span className="block animate-slide-up text-transparent bg-clip-text bg-gradient-to-br from-[#E7DFD6] via-[#B08B57] to-[#F1D6BF]">
-                      Timeless Design
+                      Luminance Graphic
                     </span>
                   </span>
                   <span className="block overflow-hidden">
-                    <span className="block animate-slide-up animation-delay-200 text-[#E7DFD6]/70">
+                    <span className="mt-1  mb-2 block animate-slide-up animation-delay-200 text-[#E7DFD6]/70 text-[43px]">
                       for modern brands
                     </span>
                   </span>
@@ -254,14 +254,14 @@ const HomePage = () => {
                 <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl ring-1 ring-white/10 rounded-full px-5 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:bg-white/10 transition-all duration-500 group">
                   <span className="inline-block w-3 h-3 rounded-full bg-[#B08B57] shadow-[0_0_0_4px_rgba(176,139,87,0.2)] group-hover:shadow-[0_0_0_6px_rgba(176,139,87,0.3)] transition-all duration-500" />
                   <p className="text-sm md:text-base text-[#E7DFD6]/80 font-medium tracking-wide">
-                    Identity • Editorial • Digital Experiences
+                    Branding • Posts • Packaging • Apparel • Social Media
                   </p>
                 </div>
 
                 <p className="text-lg md:text-xl text-[#E7DFD6]/60 max-w-xl animate-fade-in animation-delay-400">
-                  I craft visual systems that balance classical elegance with
-                  contemporary clarity—brand identities, websites, and campaigns
-                  with lasting impact.
+                  I design logos, brand systems, apparel graphics, packaging,
+                  and marketing assets that are distinctive and
+                  production‑ready—built to perform across print and digital.
                 </p>
               </div>
 

@@ -1,18 +1,20 @@
 // src/Components/TShirtDesignSection.jsx
 import { useEffect, useRef, useState } from "react";
 
-// Images (1..11)
-import Tdesign1 from "../assets/Tshirt Designs/tdesigns (1).jpg";
-import Tdesign2 from "../assets/Tshirt Designs/tdesigns (2).jpg";
-import Tdesign3 from "../assets/Tshirt Designs/tdesigns (3).jpg";
-import Tdesign4 from "../assets/Tshirt Designs/tdesigns (4).jpg";
-import Tdesign5 from "../assets/Tshirt Designs/tdesigns (5).jpg";
-import Tdesign6 from "../assets/Tshirt Designs/tdesigns (6).jpg";
-import Tdesign7 from "../assets/Tshirt Designs/tdesigns (7).jpg";
-import Tdesign8 from "../assets/Tshirt Designs/tdesigns (8).jpg";
-import Tdesign9 from "../assets/Tshirt Designs/tdesigns (9).jpg";
-import Tdesign10 from "../assets/Tshirt Designs/tdesigns (10).jpg";
-import Tdesign11 from "../assets/Tshirt Designs/tdesigns (11).jpg";
+// Images (T‑Shirts)
+import Tdesign1 from "../assets/Tshirt Designs/1.jpg";
+import Tdesign2 from "../assets/Tshirt Designs/2.jpg";
+import Tdesign3 from "../assets/Tshirt Designs/3.jpg";
+import Tdesign4 from "../assets/Tshirt Designs/4.jpg";
+import Tdesign5 from "../assets/Tshirt Designs/5.jpg";
+import Tdesign6 from "../assets/Tshirt Designs/6.jpg";
+import Tdesign7 from "../assets/Tshirt Designs/7.jpg";
+import Tdesign8 from "../assets/Tshirt Designs/8.jpg";
+import Tdesign9 from "../assets/Tshirt Designs/9.jpg";
+import Tdesign10 from "../assets/Tshirt Designs/10.jpg";
+
+// Images (Caps) — add more here as needed
+import Cap1 from "../assets/Cap/IMG-20250901-WA0013.jpg";
 
 // Theme
 const COLORS = {
@@ -117,7 +119,7 @@ const TShirtDesignSection = () => {
   const overlayBackdropRef = useRef(null);
   const overlayContentRef = useRef(null);
   const viewerRef = useRef(null);
-  const intervalRef = useRef(null);
+  const intervalRef = useRef(null); // overlay slideshow
   const touchStartRef = useRef({ x: 0, y: 0 });
 
   const [mouse, setMouse] = useState({ x: "50%", y: "50%" });
@@ -126,24 +128,20 @@ const TShirtDesignSection = () => {
   // Overlay
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false); // manual by default
+  const [isPlaying, setIsPlaying] = useState(false); // overlay slideshow manual by default
   const [isHovering, setIsHovering] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // Zoom + Pan
-  const [zoom, setZoom] = useState(1); // 1, 1.5, 2, 3
+  const [zoom, setZoom] = useState(1);
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const dragStartRef2 = useRef({ x: 0, y: 0 });
   const offsetStartRef2 = useRef({ x: 0, y: 0 });
 
-  // See more
-  const [showMore, setShowMore] = useState(false);
-  const extrasGridRef = useRef(null);
-
-  // Images
-  const covers = [
+  // Data: split by category
+  const tshirtSources = [
     Tdesign1,
     Tdesign2,
     Tdesign3,
@@ -153,16 +151,37 @@ const TShirtDesignSection = () => {
     Tdesign7,
     Tdesign8,
     Tdesign9,
-    Tdesign10,
-    Tdesign11
-  ].map((src, i) => ({
+    Tdesign10
+  ];
+  const capSources = [Cap1]; // Add more caps here when available
+
+  const tshirtCovers = tshirtSources.map((src, i) => ({
     src,
     title: `T‑Shirt Design ${i + 1}`,
-    category: "Apparel • Graphic"
+    category: "T‑Shirt"
   }));
-  const featured = covers.slice(0, 6);
-  const extras = covers.slice(6);
-  const allPosts = covers;
+  const capCovers = capSources.map((src, i) => ({
+    src,
+    title: `Cap Design ${i + 1}`,
+    category: "Cap"
+  }));
+
+  // Unified for overlay
+  const allPosts = [...tshirtCovers, ...capCovers];
+  const capsOffset = tshirtCovers.length;
+
+  // Pair builders (2 images per card), using global indices
+  const buildPairs = (offset, len) => {
+    const pairs = [];
+    for (let i = 0; i < len; i += 2) {
+      const a = offset + i;
+      const b = offset + i + 1;
+      pairs.push([a, b].filter((x) => x < offset + len));
+    }
+    return pairs;
+  };
+  const tshirtPairs = buildPairs(0, tshirtCovers.length);
+  const capPairs = buildPairs(capsOffset, capCovers.length);
 
   // Spotlight cursor
   const handleSectionMouseMove = (e) => {
@@ -192,7 +211,7 @@ const TShirtDesignSection = () => {
     return () => mq.removeEventListener?.("change", onChange);
   }, []);
 
-  // Body scroll lock + focus trap when overlay opens
+  // Body scroll lock + focus when overlay opens
   useEffect(() => {
     if (!overlayOpen) return;
     const prev = document.body.style.overflow;
@@ -208,7 +227,7 @@ const TShirtDesignSection = () => {
     };
   }, [overlayOpen]);
 
-  // Slideshow
+  // Slideshow (overlay)
   useEffect(() => {
     if (!overlayOpen || reducedMotion || !isPlaying || isHovering) {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -254,7 +273,7 @@ const TShirtDesignSection = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [overlayOpen]);
 
-  // Preload neighbors
+  // Preload neighbors (overlay)
   useEffect(() => {
     if (!overlayOpen) return;
     const nextIdx = (activeIndex + 1) % allPosts.length;
@@ -264,19 +283,6 @@ const TShirtDesignSection = () => {
       img.src = allPosts[i].src;
     });
   }, [overlayOpen, activeIndex, allPosts]);
-
-  // See more: optional smooth scroll when opening
-  useEffect(() => {
-    if (showMore && extrasGridRef.current) {
-      // Slight delay to allow expand animation to start
-      setTimeout(() => {
-        extrasGridRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 100);
-    }
-  }, [showMore]);
 
   const openOverlay = (index) => {
     setActiveIndex(index);
@@ -307,7 +313,7 @@ const TShirtDesignSection = () => {
   };
   const togglePlayPause = () => setIsPlaying((p) => !p);
 
-  // Zoom + pan
+  // Zoom + pan (overlay)
   const zoomIn = () => setZoom((z) => Math.min(3, +(z + 0.5).toFixed(1)));
   const zoomOut = () =>
     setZoom((z) => {
@@ -384,6 +390,213 @@ const TShirtDesignSection = () => {
     }
   };
 
+  // Duo slider card (2 images per card)
+  const DuoSliderCard = ({ pair }) => {
+    const slides = pair.map((i) => ({ ...allPosts[i], index: i }));
+    const [index, setIndex] = useState(0);
+    const [hovering, setHovering] = useState(false);
+    const [playing, setPlaying] = useState(true);
+    const autoRef = useRef(null);
+    const swipeRef = useRef({ x: 0, y: 0, moved: false });
+
+    const hasTwo = slides.length > 1;
+
+    const nextSlide = () => setIndex((i) => (i + 1) % slides.length);
+    const prevSlide = () =>
+      setIndex((i) => (i - 1 + slides.length) % slides.length);
+
+    // Autoplay (pause on hover, respect reduced motion)
+    useEffect(() => {
+      if (!hasTwo || reducedMotion || !playing || hovering) {
+        if (autoRef.current) clearInterval(autoRef.current);
+        return;
+      }
+      autoRef.current = setInterval(nextSlide, 3000);
+      return () => clearInterval(autoRef.current);
+    }, [playing, hovering, reducedMotion, hasTwo]);
+
+    // Swipe handlers
+    const onPointerDown = (e) => {
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const y = e.touches ? e.touches[0].clientY : e.clientY;
+      swipeRef.current = { x, y, moved: false };
+    };
+    const onPointerMove = (e) => {
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const y = e.touches ? e.touches[0].clientY : e.clientY;
+      const dx = x - swipeRef.current.x;
+      const dy = y - swipeRef.current.y;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) swipeRef.current.moved = true;
+    };
+    const onPointerUp = (e) => {
+      if (!hasTwo) return;
+      const x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+      const dx = x - swipeRef.current.x;
+      if (Math.abs(dx) > 40) {
+        dx < 0 ? nextSlide() : prevSlide();
+      }
+    };
+
+    const open = () => {
+      if (swipeRef.current.moved) return; // prevent click after swipe
+      openOverlay(slides[index].index);
+    };
+
+    // Ensure arrow interactions never bubble to parent
+    const stopAll = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      swipeRef.current.moved = true;
+    };
+
+    return (
+      <div className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-transparent ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] transition-all duration-500">
+        <div
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => (e.key === "Enter" ? open() : null)}
+          onClick={open}
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onTouchStart={onPointerDown}
+          onTouchMove={onPointerMove}
+          onTouchEnd={onPointerUp}
+          onPointerCancel={() => (swipeRef.current.moved = false)}
+          className="relative rounded-2xl bg-[#141518]/40 backdrop-blur-xl overflow-hidden"
+          aria-label="Open design"
+        >
+          {/* BG flair */}
+          <div className="absolute inset-0 opacity-60 bg-gradient-to-tr from-[#B08B57]/10 via-transparent to-[#F1D6BF]/10 -z-10" />
+
+          {/* Slider */}
+          <div className="relative w-full aspect-[1/1] overflow-hidden">
+            <div
+              className="flex w-full h-full transition-transform duration-700 ease-out"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {slides.map((s, i) => (
+                <div
+                  key={`duo-${s.index}-${i}`}
+                  className="w-full h-full shrink-0 relative"
+                >
+                  <img
+                    src={s.src}
+                    alt={s.title}
+                    className="w-full h-full object-cover select-none pointer-events-none"
+                    draggable="false"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Orbit ring */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="w-32 h-32 rounded-full border border-white/10 animate-[orbit_18s_linear_infinite]" />
+            </div>
+
+            {/* Arrows */}
+            {hasTwo && (
+              <>
+                <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      stopAll(e);
+                      prevSlide();
+                    }}
+                    onPointerDown={stopAll}
+                    onPointerUp={stopAll}
+                    onPointerMove={stopAll}
+                    onTouchStart={stopAll}
+                    onTouchEnd={stopAll}
+                    className="pointer-events-auto inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0A0B0D]/50 hover:bg-[#0A0B0D]/70 text-[#E7DFD6] ring-1 ring-white/10 transition opacity-0 group-hover:opacity-100"
+                    aria-label="Previous"
+                    title="Previous"
+                  >
+                    <ChevronLeftIcon className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      stopAll(e);
+                      nextSlide();
+                    }}
+                    onPointerDown={stopAll}
+                    onPointerUp={stopAll}
+                    onPointerMove={stopAll}
+                    onTouchStart={stopAll}
+                    onTouchEnd={stopAll}
+                    className="pointer-events-auto inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0A0B0D]/50 hover:bg-[#0A0B0D]/70 text-[#E7DFD6] ring-1 ring-white/10 transition opacity-0 group-hover:opacity-100"
+                    aria-label="Next"
+                    title="Next"
+                  >
+                    <ChevronRightIcon className="w-5 h-5" />
+                  </button>
+                </div>
+              </>
+            )}
+
+            {/* Dots + play/pause */}
+            {hasTwo && (
+              <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-2">
+                {[0, 1].map((i) => (
+                  <span
+                    key={`dot-${i}`}
+                    className={`h-1.5 rounded-full transition-all ${
+                      i === index ? "w-6 bg-[#B08B57]" : "w-2 bg-white/40"
+                    }`}
+                  />
+                ))}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    stopAll(e);
+                    setPlaying((p) => !p);
+                  }}
+                  onPointerDown={stopAll}
+                  onPointerUp={stopAll}
+                  onTouchStart={stopAll}
+                  onTouchEnd={stopAll}
+                  className="ml-3 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0A0B0D]/60 hover:bg-[#0A0B0D]/80 text-[#E7DFD6]/90 ring-1 ring-white/10 transition"
+                  aria-label={playing ? "Pause slider" : "Play slider"}
+                  title={playing ? "Pause" : "Play"}
+                >
+                  {playing ? (
+                    <PauseIcon className="w-3.5 h-3.5" />
+                  ) : (
+                    <PlayIcon className="w-3.5 h-3.5" />
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Meta */}
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#B08B57] animate-pulse" />
+              <span className="text-xs md:text-sm text-[#E7DFD6]/80 font-medium tracking-wide">
+                {slides[index]?.category}
+              </span>
+            </div>
+            <h3 className="mt-1 text-base md:text-lg font-semibold text-[#E7DFD6]">
+              {slides[index]?.title}
+            </h3>
+          </div>
+
+          <div className="absolute inset-0 bg-[#0A0B0D]/0 group-hover:bg-[#0A0B0D]/10 transition-colors duration-500" />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section
       id="tshirtdesign"
@@ -419,151 +632,64 @@ const TShirtDesignSection = () => {
           <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl ring-1 ring-white/10 rounded-full px-5 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#B08B57] shadow-[0_0_0_4px_rgba(176,139,87,0.18)]" />
             <span className="text-xs md:text-sm text-[#E7DFD6]/80 font-medium tracking-wide">
-              Apparel • Merch • Streetwear
+              Apparel • T-Shirts • Caps • Merch
             </span>
           </div>
 
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] relative">
             <span className="block overflow-hidden">
               <span className="block animate-slide-up text-transparent bg-clip-text bg-gradient-to-br from-[#E7DFD6] via-[#B08B57] to-[#F1D6BF]">
-                T‑Shirt Design
+                Apparel Designs (T‑Shirts & Caps)
               </span>
             </span>
             <div className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#B08B57] to-transparent animate-expand-width" />
           </h2>
 
           <p className="mt-6 max-w-2xl text-[#E7DFD6]/60">
-            Custom apparel graphics, mockups, and print‑ready deliverables for
-            any print method.
+            Custom apparel and headwear graphics, mockups, and print‑ready
+            deliverables for any print method.
           </p>
         </div>
 
-        {/* Featured Grid (square-ish) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {featured.map((p, i) => (
-            <button
-              key={`tee-feat-${i}`}
-              onClick={() => openOverlay(i)}
-              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 via-white/5 to-transparent ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 text-left"
-            >
-              <div className="relative rounded-2xl bg-[#141518]/40 backdrop-blur-xl overflow-hidden">
-                <div className="absolute inset-0 opacity-60 bg-gradient-to-tr from-[#B08B57]/10 via-transparent to-[#F1D6BF]/10 -z-10" />
-                <div className="relative overflow-hidden">
-                  <div className="w-full aspect-[1/1]">
-                    <img
-                      src={p.src}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                      loading="lazy"
-                      decoding="async"
-                      draggable="false"
-                    />
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full border border-white/10 animate-[orbit_18s_linear_infinite]" />
-                  </div>
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#B08B57] animate-pulse" />
-                    <span className="text-xs text-[#B08B57] font-medium">
-                      {p.category}
-                    </span>
-                  </div>
-                  <h3 className="mt-1 text-base md:text-lg font-semibold text-[#E7DFD6]">
-                    {p.title}
-                  </h3>
-                </div>
-
-                <div className="absolute inset-0 bg-[#0A0B0D]/0 group-hover:bg-[#0A0B0D]/10 transition-colors duration-500" />
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* See more toggle (fixed) */}
-        {extras.length > 0 && (
-          <>
-            <div className="mt-10 md:mt-14 flex justify-center">
-              <button
-                onClick={() => setShowMore((s) => !s)}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/15 text-[#E7DFD6] px-4 py-2 ring-1 ring-white/10 transition"
-                aria-expanded={showMore}
-                aria-controls="extras-grid"
-              >
-                <svg
-                  className={`w-4 h-4 transition-transform ${
-                    showMore ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-                <span className="text-sm font-medium">
-                  {showMore ? "Show less" : "See more"}
-                </span>
-              </button>
+        {/* T‑Shirt Designs */}
+        {tshirtPairs.length > 0 && (
+          <div className="mb-12">
+            <div className="mb-4 md:mb-6 flex items-center gap-3">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#B08B57]" />
+              <h3 className="text-xl md:text-2xl font-bold">T‑Shirt Designs</h3>
             </div>
-
-            {/* Extras grid (collapsible) */}
-            <div
-              id="extras-grid"
-              ref={extrasGridRef}
-              className={`mt-6 md:mt-8 overflow-hidden transition-[max-height,opacity,transform] duration-500 ${
-                showMore
-                  ? "max-h-[3000px] opacity-100 translate-y-0"
-                  : "max-h-0 opacity-0 -translate-y-2"
-              }`}
-              aria-hidden={!showMore}
-            >
-              <div className="rounded-2xl p-4 md:p-5 bg-white/5 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-                  {extras.map((p, i) => {
-                    const globalIndex = featured.length + i;
-                    return (
-                      <button
-                        key={`tee-extra-${i}`}
-                        onClick={() => openOverlay(globalIndex)}
-                        className="relative overflow-hidden rounded-xl ring-1 ring-white/10 hover:ring-white/20 transition group"
-                        aria-label={`Open ${p.title}`}
-                      >
-                        <div className="w-full aspect-[1/1]">
-                          <img
-                            src={p.src}
-                            alt={p.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                            loading="lazy"
-                            decoding="async"
-                            draggable="false"
-                          />
-                        </div>
-                        <div className="absolute inset-0 bg-[#0A0B0D]/0 group-hover:bg-[#0A0B0D]/10 transition-colors" />
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {tshirtPairs.map((pair, i) => (
+                <DuoSliderCard key={`tee-pair-${i}`} pair={pair} />
+              ))}
             </div>
-          </>
+          </div>
+        )}
+
+        {/* Cap Designs */}
+        {capPairs.length > 0 && (
+          <div>
+            <div className="mb-4 md:mb-6 flex items-center gap-3">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#B08B57]" />
+              <h3 className="text-xl md:text-2xl font-bold">Cap Designs</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {capPairs.map((pair, i) => (
+                <DuoSliderCard key={`cap-pair-${i}`} pair={pair} />
+              ))}
+            </div>
+          </div>
         )}
       </div>
 
-      {/* Lightbox Overlay (Improved UX) */}
+      {/* Lightbox Overlay */}
       {overlayOpen && (
         <div
           ref={overlayBackdropRef}
           className="fixed inset-0 z-[100] bg-[#0A0B0D]/80 backdrop-blur-sm flex items-center justify-center"
           role="dialog"
           aria-modal="true"
-          aria-label="T-shirt design viewer"
+          aria-label="Apparel design viewer"
           onClick={(e) => {
             if (e.target === overlayBackdropRef.current) closeOverlay();
           }}
@@ -663,7 +789,7 @@ const TShirtDesignSection = () => {
                   touchAction: zoom > 1 ? "pan-x pan-y" : "manipulation"
                 }}
               >
-                {/* Prev/Next big hit areas */}
+                {/* Prev/Next */}
                 <div className="absolute inset-y-0 left-0 w-1/4 md:w-1/3 flex items-center justify-start pointer-events-none">
                   <button
                     onClick={prev}
@@ -715,7 +841,7 @@ const TShirtDesignSection = () => {
                   <div className="flex gap-2 md:gap-3">
                     {allPosts.map((p, idx) => (
                       <button
-                        key={`tee-thumb-${idx}`}
+                        key={`thumb-${idx}`}
                         onClick={() => select(idx)}
                         className={`relative overflow-hidden rounded-lg aspect-[1/1] h-20 md:h-24 group transition ${
                           idx === activeIndex

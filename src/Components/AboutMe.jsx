@@ -3,8 +3,8 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 // Add your teammates' photos here
-import member1 from "./../assets/my.jpg";
-import member2 from "./../assets/my2.jpg";
+import member1 from "./../assets/pasindu.png";
+import member2 from "./../assets/my2.png";
 
 // Same theme as Home.jsx
 const COLORS = {
@@ -77,12 +77,14 @@ const TeamMemberCard = ({ member, index = 0 }) => {
 
         {/* Media */}
         <div className="relative overflow-hidden rounded-xl">
-          <img
-            src={member.avatar}
-            alt={member.name}
-            className="w-full h-56 object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            loading="lazy"
-          />
+          <div className="flex items-center justify-center h-80">
+            <img
+              src={member.avatar}
+              alt={member.name}
+              className="max-w-full max-h-full object-contain rounded-xl transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              loading="lazy"
+            />
+          </div>
           {/* orbit accent */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <div className="w-40 h-40 rounded-full border border-white/10 animate-[orbit_18s_linear_infinite]" />
@@ -242,32 +244,37 @@ const About = () => {
   // Team data (add your real details/links)
   const team = [
     {
-      name: "Nethmi Fernando",
-      role: "UI/UX Designer",
+      name: "Pasindu Lakshan",
+      role: "Graphic Designer",
       avatar: member1,
-      tagline: "Design systems • Prototyping • Accessibility",
-      bio: "Crafts clean, thoughtful experiences and scalable design systems. Loves micro-interactions and meaningful motion.",
-      skills: ["Figma", "Prototyping", "Design Systems", "Usability"],
+      tagline: "Textile and Apparel Engineer UG • Graphic Designer",
+      bio: "Skilled graphic designer experienced in Adobe Creative Suite, delivering innovative and modern designs that enhance user engagement and brand identity",
+
+      skills: ["Illustrator", "Photoshop"],
       socials: {
         behance: "https://behance.net/",
-        dribbble: "https://dribbble.com/",
-        linkedin: "https://linkedin.com/"
+        linkedin: "http://linkedin.com/in/pasindu-lakshan5"
       },
-      cta: { label: "View Portfolio", href: "https://your-link.com" }
+      cta: {
+        label: "View Portfolio",
+        href: "http://linkedin.com/in/pasindu-lakshan5"
+      }
     },
     {
-      name: "Ishan Silva",
-      role: "Illustrator & 3D",
+      name: "Ishan Nilaksha",
+      role: "Graphic Designer",
       avatar: member2,
-      tagline: "Illustration • 3D • Motion",
-      bio: "Blends bold illustration with 3D and subtle motion to tell visual stories that stand out across digital and print.",
-      skills: ["Illustrator", "Photoshop", "Blender", "After Effects"],
+      tagline: "Electronics Engineer UG • Graphic Designer",
+      bio: "Passionate graphic designer with a keen eye for detail, specializing in creating visually compelling designs that communicate brand stories effectively across digital and print media.",
+      skills: ["Illustrator", "Photoshop", "React"],
       socials: {
-        instagram: "https://instagram.com/",
-        behance: "https://behance.net/",
-        linkedin: "https://linkedin.com/"
+        behance: "https://www.behance.net/ishannilaksha",
+        linkedin: "https://www.linkedin.com/in/ishan-nilaksha-686461308/"
       },
-      cta: { label: "Hire Ishan", href: "mailto:hello@example.com" }
+      cta: {
+        label: "View Portfolio",
+        href: "https://www.linkedin.com/in/ishan-nilaksha-686461308/"
+      }
     }
   ];
 

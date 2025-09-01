@@ -1,40 +1,17 @@
 // src/Components/LogoDesignSection.jsx
 import { useEffect, useRef, useState } from "react";
 
-// Brand set (Maya Digital St)
-import logoMayaMark from "./../assets/Logo Design/Maya Digital St/logo.png";
-import Maya1 from "./../assets/Logo Design/Maya Digital St/1.png";
-import Maya2 from "./../assets/Logo Design/Maya Digital St/2.jpg";
-import Maya3 from "./../assets/Logo Design/Maya Digital St/3.jpg";
-import Maya4 from "./../assets/Logo Design/Maya Digital St/4.jpg";
-import Maya5 from "./../assets/Logo Design/Maya Digital St/5.jpg";
-import Maya6 from "./../assets/Logo Design/Maya Digital St/6.jpg";
-import Maya7 from "./../assets/Logo Design/Maya Digital St/7.jpg";
-import Maya8 from "./../assets/Logo Design/Maya Digital St/8.jpg";
-import Maya9 from "./../assets/Logo Design/Maya Digital St/9.jpg";
-import Maya10 from "./../assets/Logo Design/Maya Digital St/10.jpg";
-import Maya11 from "./../assets/Logo Design/Maya Digital St/11.jpg";
-
-// Mascot set
-import Mascot1 from "./../assets/Logo Design/Mascot/logomascot (1).png";
-import Mascot2 from "./../assets/Logo Design/Mascot/logomascot (2).png";
-import Mascot3 from "./../assets/Logo Design/Mascot/logomascot (3).png";
-import Mascot4 from "./../assets/Logo Design/Mascot/logomascot (4).png";
-import Mascot5 from "./../assets/Logo Design/Mascot/logomascot (5).png";
-import Mascot6 from "./../assets/Logo Design/Mascot/logomascot (6).png";
-import Mascot7 from "./../assets/Logo Design/Mascot/logomascot (7).png";
-import Mascot8 from "./../assets/Logo Design/Mascot/logomascot (8).png";
-import Mascot9 from "./../assets/Logo Design/Mascot/logomascot (9).png";
-import Mascot10 from "./../assets/Logo Design/Mascot/logomascot (10).png";
-import Mascot11 from "./../assets/Logo Design/Mascot/logomascot (11).png";
-import Mascot12 from "./../assets/Logo Design/Mascot/logomascot (12).png";
-import Mascot13 from "./../assets/Logo Design/Mascot/logomascot (13).png";
-import Mascot14 from "./../assets/Logo Design/Mascot/logomascot (14).png";
-import Mascot15 from "./../assets/Logo Design/Mascot/logomascot (15).png";
-import Mascot16 from "./../assets/Logo Design/Mascot/logomascot (16).png";
-import Mascot17 from "./../assets/Logo Design/Mascot/logomascot (17).png";
-import Mascot18 from "./../assets/Logo Design/Mascot/logomascot (18).png";
-import Mascot19 from "./../assets/Logo Design/Mascot/logomascot (19).png";
+// Brand set (various)
+import Logo1 from "./../assets/Logo Design/logo (1).jpg";
+import Logo2 from "./../assets/Logo Design/logo (1).png";
+import Logo3 from "./../assets/Logo Design/logo (2).jpg";
+import Logo4 from "./../assets/Logo Design/logo (2).png";
+import Logo5 from "./../assets/Logo Design/logo (3).jpg";
+import Logo6 from "./../assets/Logo Design/logo (4).jpg";
+import Logo7 from "./../assets/Logo Design/logo (5).jpg";
+import Logo8 from "./../assets/Logo Design/logo (6).jpg";
+import Logo9 from "./../assets/Logo Design/logo (7).jpg";
+import Logo10 from "./../assets/Logo Design/logo (8).jpg";
 
 // Theme
 const COLORS = {
@@ -123,55 +100,37 @@ const LogoDesignSection = () => {
   const offsetStartRef = useRef({ x: 0, y: 0 });
   const swipeStartRef = useRef({ x: 0, y: 0 });
 
-  // Build datasets
-  const mayaSources = [
-    logoMayaMark,
-    Maya1,
-    Maya2,
-    Maya3,
-    Maya4,
-    Maya5,
-    Maya6,
-    Maya7,
-    Maya8,
-    Maya9,
-    Maya10,
-    Maya11
-  ];
-  const mascotSources = [
-    Mascot1,
-    Mascot2,
-    Mascot3,
-    Mascot4,
-    Mascot5,
-    Mascot6,
-    Mascot7,
-    Mascot8,
-    Mascot9,
-    Mascot10,
-    Mascot11,
-    Mascot12,
-    Mascot13,
-    Mascot14,
-    Mascot15,
-    Mascot16,
-    Mascot17,
-    Mascot18,
-    Mascot19
+  // Sources (all logos)
+  const logoSources = [
+    Logo1,
+    Logo2,
+    Logo3,
+    Logo4,
+    Logo5,
+    Logo6,
+    Logo7,
+    Logo8,
+    Logo9,
+    Logo10
   ];
 
-  const mayaLogos = mayaSources.map((src, i) => ({
+  // Optional per-logo titles (override here if you want custom names)
+  // Example:
+  // const NAMES = {
+  //   0: "Acme Co. • Mark",
+  //   3: "Nova Esports • Badge",
+  //   8: "Northern Pine • Emblem"
+  // };
+  const NAMES = {};
+
+  // Build dataset (no "Maya" labels)
+  const logos = logoSources.map((src, i) => ({
     src,
-    title: i === 0 ? "Maya Digital Studio • Mark" : `Maya Logo ${i}`,
+    title: NAMES[i] ?? `Logo Design ${i + 1}`,
     category: "Brand • Logo"
   }));
-  const mascotLogos = mascotSources.map((src, i) => ({
-    src,
-    title: `Mascot Logo ${i + 1}`,
-    category: "Mascot • Logo"
-  }));
 
-  const allPosts = [...mayaLogos, ...mascotLogos];
+  const allPosts = logos;
   const featured = allPosts.slice(0, 6);
   const extras = allPosts.slice(6);
 
@@ -188,9 +147,7 @@ const LogoDesignSection = () => {
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      {
-        threshold: 0.2
-      }
+      { threshold: 0.2 }
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
@@ -384,7 +341,7 @@ const LogoDesignSection = () => {
           <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl ring-1 ring-white/10 rounded-full px-5 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#B08B57] shadow-[0_0_0_4px_rgba(176,139,87,0.18)]" />
             <span className="text-xs md:text-sm text-[#E7DFD6]/80 font-medium tracking-wide">
-              Brand • Mascot • Identity
+              Brand • Logo • Identity
             </span>
           </div>
 
@@ -396,14 +353,9 @@ const LogoDesignSection = () => {
             </span>
             <div className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#B08B57] to-transparent animate-expand-width" />
           </h2>
-
-          <p className="mt-6 max-w-2xl text-[#E7DFD6]/60">
-            Clean marks, readable at any size. From brand identities to bold
-            mascot logos.
-          </p>
         </div>
 
-        {/* Featured Grid (square-ish) */}
+        {/* Featured Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {featured.map((p, i) => (
             <button
@@ -510,7 +462,7 @@ const LogoDesignSection = () => {
         )}
       </div>
 
-      {/* Lightbox Overlay (compact, user-friendly) */}
+      {/* Lightbox Overlay */}
       {overlayOpen && (
         <div
           ref={overlayBackdropRef}

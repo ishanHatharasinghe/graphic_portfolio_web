@@ -13,8 +13,11 @@ import Contact from "./Components/Contact";
 import Skills from "./Components/Skills";
 import Copyright from "./Components/Copyright";
 import TempHome from "./Components/TempHome";
-import UIUX from "./Components/UX-UI-Designs";
 import Tdesigns from "./Components/TDesigns";
+import BusinessCarddesigns from "./Components/Businesscard";
+import CV from "./Components/CVdesigns";
+import Bookmark from "./Components/Bookmark";
+import Banner from "./Components/Banner";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -63,6 +66,18 @@ function App() {
       </div>
       <div id="Tdesigns">
         <Tdesigns />
+      </div>
+      <div id="BusinessCarddesigns">
+        <BusinessCarddesigns />
+      </div>
+      <div id="CV">
+        <CV />
+      </div>
+      <div id="Bookmark">
+        <Bookmark />
+      </div>
+      <div id="Banner">
+        <Banner />
       </div>
       <div id="contact">
         <Contact />
