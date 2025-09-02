@@ -1,13 +1,35 @@
 // src/Components/SocialMediaCoverSection.jsx
 import { useEffect, useRef, useState } from "react";
 
-import gig8 from "./../assets/Social Media Cover/cover (1).jpg";
-import gig6 from "./../assets/Social Media Cover/cover (11).jpg";
-import gig7 from "./../assets/Social Media Cover/cover (18).jpg";
-import gig10 from "./../assets/Social Media Cover/cover (19).jpg";
-import gig9 from "./../assets/Social Media Cover/cover (2).jpg";
-import gig4 from "./../assets/Social Media Cover/cover (3).jpg";
-import gig5 from "./../assets/Social Media Cover/cover (4).jpg";
+import Image1 from "./../assets/Social Media Cover/cover (1).jpg";
+import Image2 from "./../assets/Social Media Cover/cover (2).jpg";
+import Image3 from "./../assets/Social Media Cover/cover (3).jpg";
+import Image4 from "./../assets/Social Media Cover/cover (4).jpg";
+import Image5 from "./../assets/Social Media Cover/cover (5).jpg";
+import Image6 from "./../assets/Social Media Cover/cover (6).jpg";
+import Image7 from "./../assets/Social Media Cover/cover (7).jpg";
+import Image8 from "./../assets/Social Media Cover/cover (8).jpg";
+import Image9 from "./../assets/Social Media Cover/cover (9).jpg";
+import Image10 from "./../assets/Social Media Cover/cover (10).jpg";
+import Image11 from "./../assets/Social Media Cover/cover (11).jpg";
+import Image12 from "./../assets/Social Media Cover/cover (12).jpg";
+import Image13 from "./../assets/Social Media Cover/cover (13).jpg";
+import Image14 from "./../assets/Social Media Cover/cover (14).jpg";
+import Image15 from "./../assets/Social Media Cover/cover (15).jpg";
+import Image16 from "./../assets/Social Media Cover/cover (16).jpg";
+import Image17 from "./../assets/Social Media Cover/cover (17).jpg";
+import Image18 from "./../assets/Social Media Cover/cover (18).jpg";
+import Image19 from "./../assets/Social Media Cover/cover (19).jpg";
+import Image20 from "./../assets/Social Media Cover/cover (20).jpg";
+import Image21 from "./../assets/Social Media Cover/cover (21).jpg";
+import Image22 from "./../assets/Social Media Cover/cover (22).jpg";
+import Image23 from "./../assets/Social Media Cover/cover (23).jpg";
+import Image24 from "./../assets/Social Media Cover/cover (24).jpg";
+import Image25 from "./../assets/Social Media Cover/cover (25).jpg";
+import Image26 from "./../assets/Social Media Cover/cover (26).jpg";
+import Image27 from "./../assets/Social Media Cover/cover (27).jpg";
+import Image28 from "./../assets/Social Media Cover/cover (28).jpg";
+
 import gig1 from "./../assets/Social Media Cover/gig4.jpg";
 import gig2 from "./../assets/Social Media Cover/gig5.jpg";
 import gig3 from "./../assets/Social Media Cover/gig6.jpg";
@@ -96,16 +118,38 @@ const SocialMediaCoverSection = () => {
 
   // Covers array (ordered)
   const covers = [
-    { src: gig8, title: "Cover 1", category: "Social • Cover" },
-    { src: gig9, title: "Cover 2", category: "Social • Cover" },
-    { src: gig4, title: "Cover 3", category: "Social • Cover" },
-    { src: gig5, title: "Cover 4", category: "Social • Cover" },
-    { src: gig6, title: "Cover 5", category: "Social • Cover" },
-    { src: gig7, title: "Cover 6", category: "Social • Cover" },
-    { src: gig10, title: "Cover 7", category: "Social • Cover" },
     { src: gig1, title: "Cover 8", category: "Social • Cover" },
     { src: gig2, title: "Cover 9", category: "Social • Cover" },
-    { src: gig3, title: "Cover 10", category: "Social • Cover" }
+    { src: gig3, title: "Cover 10", category: "Social • Cover" },
+    { src: Image21, title: "Cover 21", category: "Social • Cover" },
+    { src: Image3, title: "Cover 3", category: "Social • Cover" },
+    { src: Image4, title: "Cover 4", category: "Social • Cover" },
+    { src: Image1, title: "Cover 1", category: "Social • Cover" },
+    { src: Image2, title: "Cover 2", category: "Social • Cover" },
+    { src: Image5, title: "Cover 5", category: "Social • Cover" },
+    { src: Image6, title: "Cover 6", category: "Social • Cover" },
+    { src: Image7, title: "Cover 7", category: "Social • Cover" },
+    { src: Image8, title: "Cover 8", category: "Social • Cover" },
+    { src: Image9, title: "Cover 9", category: "Social • Cover" },
+    { src: Image10, title: "Cover 10", category: "Social • Cover" },
+    { src: Image11, title: "Cover 11", category: "Social • Cover" },
+    { src: Image12, title: "Cover 12", category: "Social • Cover" },
+    { src: Image13, title: "Cover 13", category: "Social • Cover" },
+    { src: Image14, title: "Cover 14", category: "Social • Cover" },
+    { src: Image15, title: "Cover 15", category: "Social • Cover" },
+    { src: Image16, title: "Cover 16", category: "Social • Cover" },
+    { src: Image17, title: "Cover 17", category: "Social • Cover" },
+    { src: Image18, title: "Cover 18", category: "Social • Cover" },
+    { src: Image19, title: "Cover 19", category: "Social • Cover" },
+    { src: Image20, title: "Cover 20", category: "Social • Cover" },
+
+    { src: Image22, title: "Cover 22", category: "Social • Cover" },
+    { src: Image23, title: "Cover 23", category: "Social • Cover" },
+    { src: Image24, title: "Cover 24", category: "Social • Cover" },
+    { src: Image25, title: "Cover 25", category: "Social • Cover" },
+    { src: Image26, title: "Cover 26", category: "Social • Cover" },
+    { src: Image27, title: "Cover 27", category: "Social • Cover" },
+    { src: Image28, title: "Cover 28", category: "Social • Cover" }
   ];
 
   const featured = covers.slice(0, 6);

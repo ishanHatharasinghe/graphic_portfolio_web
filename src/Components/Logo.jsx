@@ -353,6 +353,9 @@ const LogoDesignSection = () => {
             </span>
             <div className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#B08B57] to-transparent animate-expand-width" />
           </h2>
+          <p className="mt-6 max-w-2xl text-[#E7DFD6]/60">
+            Engaging, on-brand visuals built your logo.
+          </p>
         </div>
 
         {/* Featured Grid */}

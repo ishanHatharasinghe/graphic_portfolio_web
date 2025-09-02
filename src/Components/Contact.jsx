@@ -41,15 +41,16 @@ const Contact = () => {
   const maxDesc = 600;
 
   const designOptions = [
-    "Logo / Branding",
     "Social Media Post",
-    "T‑Shirt Design",
-    "Book Cover",
-    "UI/UX (Web/App)",
-    "Illustration",
-    "Flyer / Poster",
-    "Business Card",
-    "Packaging",
+    "Logo Design",
+    "YouTube Thumbnails",
+    "Social Media Cover Design",
+    "Tute/Book Cover",
+    "Apparel Designs (T‑Shirts & Caps)",
+    "Business Card Design",
+    "CV/Resume Design",
+    "Bookmark Design",
+    "Banner & Poster Design",
     "Other"
   ];
 

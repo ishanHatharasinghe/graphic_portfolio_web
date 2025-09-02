@@ -4,7 +4,6 @@ import Statue from "../assets/Home Section/marble-greek-goddess-themis-wearing-c
 import Image1 from "./../assets/Tshirt Designs/1.jpg";
 import Image2 from "./../assets/Tshirt Designs/3.jpg";
 import Image3 from "./../assets/Tshirt Designs/5.jpg";
-
 // Brand colors adjusted for dark theme
 const COLORS = {
   slate: "#6B7785",
@@ -110,8 +109,8 @@ const HomePage = () => {
 
   const socialImages = [
     { src: Image1, title: "Brand Identity Design", category: "Branding" },
-    { src: Image2, title: "Social Media Campaign", category: "Digital" },
-    { src: Image3, title: "Editorial Layout", category: "Print" }
+    { src: Image2, title: "Brand Identity Design", category: "Branding" },
+    { src: Image3, title: "Brand Identity Design", category: "Branding" }
   ];
 
   useEffect(() => {
@@ -558,7 +557,7 @@ const HomePage = () => {
 
                 {/* Floating accents */}
                 <div className="absolute -top-6 -right-6 w-8 h-8 rounded-full bg-gradient-to-br from-[#B08B57] to-[#D4A574] shadow-[0_0_40px_rgba(176,139,87,0.8)] animate-float" />
-                <div className="absolute -bottom-8 -left-8 w-14 h-14 rounded-full bg-gradient-to-tr from-[#6B7785]/40 to-[#8B99A8]/30 backdrop-blur-sm animate-float-reverse" />
+
                 <div className="absolute top-1/2 -right-10 w-6 h-6 rounded-full bg-[#F1D6BF]/30 blur-sm animate-pulse-slow" />
               </div>
 

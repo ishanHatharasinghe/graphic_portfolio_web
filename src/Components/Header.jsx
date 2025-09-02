@@ -21,7 +21,7 @@ const COLORS = {
   darkBg: "#0A0B0D",
   darkCard: "#141518"
 };
-
+import logo from "../assets/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -50,8 +50,7 @@ const Navbar = () => {
         "BusinessCarddesigns",
         "CV",
         "Bookmark",
-        "Banner",
-        "contact"
+        "Banner"
       ];
 
       const current = sections.find((sectionId) => {
@@ -116,7 +115,6 @@ const Navbar = () => {
   const mainNavItems = [
     { id: "home", label: "Home", icon: Star },
     { id: "about", label: "About", icon: FileText },
-    { id: "skills", label: "Skills", icon: Sparkles },
     { id: "content", label: "Content", icon: Grid3X3 }
   ];
 
@@ -158,7 +156,7 @@ const Navbar = () => {
     },
     {
       id: "Tdesigns",
-      label: "T-Shirt Designs",
+      label: "Apparel Designs (T‑Shirts & Caps)",
       icon: Palette,
       category: "Apparel",
       description: "Trendy wearable graphics"
@@ -186,9 +184,9 @@ const Navbar = () => {
     },
     {
       id: "Banner",
-      label: "Banners",
+      label: "Banners & Flyers",
       icon: Image,
-      category: "Digital",
+      category: "Print",
       description: "Impactful promotional designs"
     }
   ];
@@ -226,10 +224,10 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               {/* Animated decorative element */}
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#B08B57] via-[#D4A574] to-[#F1D6BF] shadow-[0_0_25px_rgba(176,139,87,0.6)] group-hover:shadow-[0_0_35px_rgba(176,139,87,0.8)] transition-all duration-500" />
-                <div className="absolute inset-1 w-8 h-8 rounded-full bg-gradient-to-tr from-[#F1D6BF]/40 to-transparent animate-pulse" />
-                <div className="absolute inset-2 w-6 h-6 rounded-full bg-[#0A0B0D]/20 flex items-center justify-center">
-                  <Sparkles className="w-3 h-3 text-[#F1D6BF] animate-pulse" />
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#B08B57] via-[#D4A574] to-[#F1D6BF] shadow-[0_0_25px_rgba(176,139,87,0.6)] group-hover:shadow-[0_0_35px_rgba(176,139,87,0.8)] transition-all duration-500" />
+                <div className="absolute inset-1 w-10 h-10 rounded-full bg-gradient-to-tr from-[#F1D6BF]/40 to-transparent animate-pulse" />
+                <div className="absolute inset-2 w-8 h-8 rounded-full bg-[#0A0B0D]/20 flex items-center justify-center">
+                  <img src={logo} />
                 </div>
               </div>
 
@@ -416,22 +414,6 @@ const Navbar = () => {
               </li>
             </ul>
 
-            {/* Contact Link */}
-            <button
-              onClick={() => scrollToSection("contact")}
-              className={`relative px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 group flex items-center gap-2 ml-2 ${
-                activeSection === "contact"
-                  ? "text-[#B08B57] bg-white/10 shadow-[0_0_20px_rgba(176,139,87,0.3)]"
-                  : "text-[#E7DFD6]/70 hover:text-[#E7DFD6] hover:bg-white/5"
-              }`}
-            >
-              <span className="relative z-10">Contact</span>
-              {activeSection === "contact" && (
-                <div className="absolute inset-0 rounded-xl ring-1 ring-[#B08B57]/30 bg-gradient-to-r from-[#B08B57]/10 to-[#F1D6BF]/10" />
-              )}
-              <div className="absolute inset-0 rounded-xl bg-[#B08B57]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-            </button>
-
             {/* Enhanced CTA Button */}
             <button
               onClick={() => scrollToSection("contact")}
@@ -439,7 +421,7 @@ const Navbar = () => {
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />
-                Let's Create
+                Let's Connect
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#C89B67] to-[#E5B885] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute -inset-4 bg-[#B08B57]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

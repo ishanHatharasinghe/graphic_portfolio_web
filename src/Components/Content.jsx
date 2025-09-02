@@ -71,7 +71,7 @@ const services = [
   },
   {
     Icon: FaTshirt,
-    title: "T‑Shirt Design",
+    title: "Apparel Designs (T‑Shirts & Caps)",
     desc: "Custom apparel graphics, mockups, and print‑ready files for any method.",
     target: "Tdesigns",
     level: 91,
@@ -139,7 +139,7 @@ const Content = () => {
   return (
     <section
       id="content"
-      className="min-h-auto p-12 relative overflow-hidden text-[#E7DFD6]"
+      className="min-h-auto  relative overflow-hidden text-[#E7DFD6]"
       style={{
         background:
           "radial-gradient(ellipse at 70% 10%, #1F232B 0%, #141518 40%, #0A0B0D 100%)"
@@ -185,7 +185,7 @@ const Content = () => {
       </div>
 
       {/* Cards */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-10">
+      <div className="relative max-w-7xl mx-auto px-6 pt-10 mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {services.map((s) => (
             <div
@@ -211,34 +211,6 @@ const Content = () => {
               <h2 className="text-lg md:text-xl font-semibold text-center">
                 {s.title}
               </h2>
-
-              {/* Progress */}
-              <div className="flex justify-center items-center mt-3 mb-2">
-                <div
-                  className="w-40 md:w-44"
-                  role="progressbar"
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuenow={s.level}
-                  aria-label={`${s.title} expertise`}
-                >
-                  <div className="relative h-2 rounded-full bg-white/10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent" />
-                    <div
-                      className={`relative h-full rounded-full bg-gradient-to-r from-[#C89B67] via-[#B08B57] to-[#8B6A3A] shadow-[0_6px_24px_-6px_rgba(176,139,87,0.7)] ${
-                        reducedMotion ? "" : "animate-fill"
-                      }`}
-                      style={{ width: `${s.level}%` }}
-                    >
-                      <div
-                        className={`absolute inset-y-0 -left-1/3 w-1/3 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,.6),transparent)] mix-blend-screen ${
-                          reducedMotion ? "" : "animate-shine"
-                        }`}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Description */}
               <p className="text-sm md:text-base text-center text-[#E7DFD6]/70">

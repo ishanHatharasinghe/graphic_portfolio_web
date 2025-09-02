@@ -160,6 +160,111 @@ import Image144 from "./../assets/Social Media Posts/lower (117).jpg";
 import Image145 from "./../assets/Social Media Posts/lower (118).jpg";
 import Image146 from "./../assets/Social Media Posts/upper (28).jpg";
 
+import NewImage1 from "./../assets/Social Media Posts/new/newimg (1).jpg";
+import NewImage2 from "./../assets/Social Media Posts/new/newimg (2).jpg";
+import NewImage3 from "./../assets/Social Media Posts/new/newimg (3).jpg";
+import NewImage4 from "./../assets/Social Media Posts/new/newimg (4).jpg";
+import NewImage5 from "./../assets/Social Media Posts/new/newimg (5).jpg";
+import NewImage6 from "./../assets/Social Media Posts/new/newimg (6).jpg";
+import NewImage7 from "./../assets/Social Media Posts/new/newimg (7).jpg";
+import NewImage8 from "./../assets/Social Media Posts/new/newimg (8).jpg";
+import NewImage9 from "./../assets/Social Media Posts/new/newimg (9).jpg";
+import NewImage10 from "./../assets/Social Media Posts/new/newimg (10).jpg";
+import NewImage11 from "./../assets/Social Media Posts/new/newimg (11).jpg";
+import NewImage12 from "./../assets/Social Media Posts/new/newimg (12).jpg";
+import NewImage13 from "./../assets/Social Media Posts/new/newimg (13).jpg";
+import NewImage14 from "./../assets/Social Media Posts/new/newimg (14).jpg";
+import NewImage15 from "./../assets/Social Media Posts/new/newimg (15).jpg";
+import NewImage16 from "./../assets/Social Media Posts/new/newimg (16).jpg";
+import NewImage17 from "./../assets/Social Media Posts/new/newimg (17).jpg";
+import NewImage18 from "./../assets/Social Media Posts/new/newimg (18).jpg";
+import NewImage19 from "./../assets/Social Media Posts/new/newimg (19).jpg";
+import NewImage20 from "./../assets/Social Media Posts/new/newimg (20).jpg";
+import NewImage21 from "./../assets/Social Media Posts/new/newimg (21).jpg";
+import NewImage22 from "./../assets/Social Media Posts/new/newimg (22).jpg";
+import NewImage23 from "./../assets/Social Media Posts/new/newimg (23).jpg";
+import NewImage24 from "./../assets/Social Media Posts/new/newimg (24).jpg";
+import NewImage25 from "./../assets/Social Media Posts/new/newimg (25).jpg";
+import NewImage26 from "./../assets/Social Media Posts/new/newimg (26).jpg";
+import NewImage27 from "./../assets/Social Media Posts/new/newimg (27).jpg";
+import NewImage28 from "./../assets/Social Media Posts/new/newimg (28).jpg";
+import NewImage29 from "./../assets/Social Media Posts/new/newimg (29).jpg";
+import NewImage30 from "./../assets/Social Media Posts/new/newimg (30).jpg";
+import NewImage31 from "./../assets/Social Media Posts/new/newimg (31).jpg";
+import NewImage32 from "./../assets/Social Media Posts/new/newimg (32).jpg";
+import NewImage33 from "./../assets/Social Media Posts/new/newimg (33).jpg";
+import NewImage34 from "./../assets/Social Media Posts/new/newimg (34).jpg";
+import NewImage35 from "./../assets/Social Media Posts/new/newimg (35).jpg";
+import NewImage36 from "./../assets/Social Media Posts/new/newimg (36).jpg";
+import NewImage37 from "./../assets/Social Media Posts/new/newimg (37).jpg";
+import NewImage38 from "./../assets/Social Media Posts/new/newimg (38).jpg";
+import NewImage39 from "./../assets/Social Media Posts/new/newimg (39).jpg";
+import NewImage40 from "./../assets/Social Media Posts/new/newimg (40).jpg";
+import NewImage41 from "./../assets/Social Media Posts/new/newimg (41).jpg";
+import NewImage42 from "./../assets/Social Media Posts/new/newimg (42).jpg";
+import NewImage43 from "./../assets/Social Media Posts/new/newimg (43).jpg";
+import NewImage44 from "./../assets/Social Media Posts/new/newimg (44).jpg";
+import NewImage45 from "./../assets/Social Media Posts/new/newimg (45).jpg";
+import NewImage46 from "./../assets/Social Media Posts/new/newimg (46).jpg";
+import NewImage47 from "./../assets/Social Media Posts/new/newimg (47).jpg";
+import NewImage48 from "./../assets/Social Media Posts/new/newimg (48).jpg";
+import NewImage49 from "./../assets/Social Media Posts/new/newimg (49).jpg";
+import NewImage50 from "./../assets/Social Media Posts/new/newimg (50).jpg";
+import NewImage51 from "./../assets/Social Media Posts/new/newimg (51).jpg";
+import NewImage52 from "./../assets/Social Media Posts/new/newimg (52).jpg";
+import NewImage53 from "./../assets/Social Media Posts/new/newimg (53).jpg";
+import NewImage54 from "./../assets/Social Media Posts/new/newimg (54).jpg";
+import NewImage55 from "./../assets/Social Media Posts/new/newimg (55).jpg";
+import NewImage56 from "./../assets/Social Media Posts/new/newimg (56).jpg";
+import NewImage57 from "./../assets/Social Media Posts/new/newimg (57).jpg";
+import NewImage58 from "./../assets/Social Media Posts/new/newimg (58).jpg";
+import NewImage59 from "./../assets/Social Media Posts/new/newimg (59).jpg";
+import NewImage60 from "./../assets/Social Media Posts/new/newimg (60).jpg";
+import NewImage61 from "./../assets/Social Media Posts/new/newimg (61).jpg";
+import NewImage62 from "./../assets/Social Media Posts/new/newimg (62).jpg";
+import NewImage63 from "./../assets/Social Media Posts/new/newimg (63).jpg";
+import NewImage64 from "./../assets/Social Media Posts/new/newimg (64).jpg";
+import NewImage65 from "./../assets/Social Media Posts/new/newimg (65).jpg";
+import NewImage66 from "./../assets/Social Media Posts/new/newimg (66).jpg";
+import NewImage67 from "./../assets/Social Media Posts/new/newimg (67).jpg";
+import NewImage68 from "./../assets/Social Media Posts/new/newimg (68).jpg";
+import NewImage69 from "./../assets/Social Media Posts/new/newimg (69).jpg";
+import NewImage70 from "./../assets/Social Media Posts/new/newimg (70).jpg";
+import NewImage71 from "./../assets/Social Media Posts/new/newimg (71).jpg";
+import NewImage72 from "./../assets/Social Media Posts/new/newimg (72).jpg";
+import NewImage73 from "./../assets/Social Media Posts/new/newimg (73).jpg";
+import NewImage74 from "./../assets/Social Media Posts/new/newimg (74).jpg";
+import NewImage75 from "./../assets/Social Media Posts/new/newimg (75).jpg";
+import NewImage76 from "./../assets/Social Media Posts/new/newimg (76).jpg";
+import NewImage77 from "./../assets/Social Media Posts/new/newimg (77).jpg";
+import NewImage78 from "./../assets/Social Media Posts/new/newimg (78).jpg";
+import NewImage79 from "./../assets/Social Media Posts/new/newimg (79).jpg";
+import NewImage80 from "./../assets/Social Media Posts/new/newimg (80).jpg";
+import NewImage81 from "./../assets/Social Media Posts/new/newimg (81).jpg";
+import NewImage82 from "./../assets/Social Media Posts/new/newimg (82).jpg";
+import NewImage83 from "./../assets/Social Media Posts/new/newimg (83).jpg";
+import NewImage84 from "./../assets/Social Media Posts/new/newimg (84).jpg";
+import NewImage85 from "./../assets/Social Media Posts/new/newimg (85).jpg";
+import NewImage86 from "./../assets/Social Media Posts/new/newimg (86).jpg";
+import NewImage87 from "./../assets/Social Media Posts/new/newimg (87).jpg";
+import NewImage88 from "./../assets/Social Media Posts/new/newimg (88).jpg";
+import NewImage89 from "./../assets/Social Media Posts/new/newimg (89).jpg";
+import NewImage90 from "./../assets/Social Media Posts/new/newimg (90).jpg";
+import NewImage91 from "./../assets/Social Media Posts/new/newimg (91).jpg";
+import NewImage92 from "./../assets/Social Media Posts/new/newimg (92).jpg";
+import NewImage93 from "./../assets/Social Media Posts/new/newimg (93).jpg";
+import NewImage94 from "./../assets/Social Media Posts/new/newimg (94).jpg";
+import NewImage95 from "./../assets/Social Media Posts/new/newimg (95).jpg";
+import NewImage96 from "./../assets/Social Media Posts/new/newimg (96).jpg";
+import NewImage97 from "./../assets/Social Media Posts/new/newimg (97).jpg";
+import NewImage98 from "./../assets/Social Media Posts/new/newimg (98).jpg";
+import NewImage99 from "./../assets/Social Media Posts/new/newimg (99).jpg";
+import NewImage100 from "./../assets/Social Media Posts/new/newimg (100).jpg";
+import NewImage101 from "./../assets/Social Media Posts/new/newimg (101).jpg";
+import NewImage102 from "./../assets/Social Media Posts/new/newimg (102).jpg";
+import NewImage103 from "./../assets/Social Media Posts/new/newimg (103).jpg";
+import NewImage104 from "./../assets/Social Media Posts/new/newimg (104).jpg";
+
 // Theme (matches Home)
 const COLORS = {
   slate: "#6B7785",
@@ -268,8 +373,9 @@ const SocialMediaPostsSection = () => {
     { src: gig9, title: "Featured 9", category: "Social • Promo" }
   ];
 
-  // See-more sources
+  // FIXED: Complete morePostsSources array with ALL imported images
   const morePostsSources = [
+    // All upper images
     Image1,
     Image2,
     Image3,
@@ -297,6 +403,9 @@ const SocialMediaPostsSection = () => {
     Image25,
     Image26,
     Image27,
+    Image146,
+
+    // All lower images
     Image28,
     Image29,
     Image30,
@@ -415,8 +524,114 @@ const SocialMediaPostsSection = () => {
     Image143,
     Image144,
     Image145,
-    Image146
+
+    // All new images
+    NewImage1,
+    NewImage2,
+    NewImage3,
+    NewImage4,
+    NewImage5,
+    NewImage6,
+    NewImage7,
+    NewImage8,
+    NewImage9,
+    NewImage10,
+    NewImage11,
+    NewImage12,
+    NewImage13,
+    NewImage14,
+    NewImage15,
+    NewImage16,
+    NewImage17,
+    NewImage18,
+    NewImage19,
+    NewImage20,
+    NewImage21,
+    NewImage22,
+    NewImage23,
+    NewImage24,
+    NewImage25,
+    NewImage26,
+    NewImage27,
+    NewImage28,
+    NewImage29,
+    NewImage30,
+    NewImage31,
+    NewImage32,
+    NewImage33,
+    NewImage34,
+    NewImage35,
+    NewImage36,
+    NewImage37,
+    NewImage38,
+    NewImage39,
+    NewImage40,
+    NewImage41,
+    NewImage42,
+    NewImage43,
+    NewImage44,
+    NewImage45,
+    NewImage46,
+    NewImage47,
+    NewImage48,
+    NewImage49,
+    NewImage50,
+    NewImage51,
+    NewImage52,
+    NewImage53,
+    NewImage54,
+    NewImage55,
+    NewImage56,
+    NewImage57,
+    NewImage58,
+    NewImage59,
+    NewImage60,
+    NewImage61,
+    NewImage62,
+    NewImage63,
+    NewImage64,
+    NewImage65,
+    NewImage66,
+    NewImage67,
+    NewImage68,
+    NewImage69,
+    NewImage70,
+    NewImage71,
+    NewImage72,
+    NewImage73,
+    NewImage74,
+    NewImage75,
+    NewImage76,
+    NewImage77,
+    NewImage78,
+    NewImage79,
+    NewImage80,
+    NewImage81,
+    NewImage82,
+    NewImage83,
+    NewImage84,
+    NewImage85,
+    NewImage86,
+    NewImage87,
+    NewImage88,
+    NewImage89,
+    NewImage90,
+    NewImage91,
+    NewImage92,
+    NewImage93,
+    NewImage94,
+    NewImage95,
+    NewImage96,
+    NewImage97,
+    NewImage98,
+    NewImage99,
+    NewImage100,
+    NewImage101,
+    NewImage102,
+    NewImage103,
+    NewImage104
   ];
+
   const morePosts = morePostsSources.map((src, i) => ({
     src,
     title: `Gallery Post ${i + 1}`,
@@ -733,7 +948,7 @@ const SocialMediaPostsSection = () => {
               }`}
             />
             <span className="text-sm font-medium">
-              {showMore ? "Show less" : "See more"}
+              {showMore ? "Show less" : `See more (${morePosts.length} images)`}
             </span>
           </button>
         </div>
@@ -742,7 +957,7 @@ const SocialMediaPostsSection = () => {
         <div
           className={`mt-6 md:mt-8 overflow-hidden transition-[max-height,opacity,transform] duration-500 ${
             showMore
-              ? "max-h-[4000px] opacity-100 translate-y-0"
+              ? "max-h-[6000px] opacity-100 translate-y-0"
               : "max-h-0 opacity-0 -translate-y-2"
           }`}
           aria-hidden={!showMore}
